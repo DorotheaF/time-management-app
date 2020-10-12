@@ -1,8 +1,7 @@
 <template>
   <li v-bind:class="taskClassName">
-    <button className="delete" @click="deleteThisTask">
-      ×
-    </button>
+
+    <button type="button" class="btn btn-outline-warning" @click="deleteThisTask">Delete</button>
  
     <input
       type="checkbox"
