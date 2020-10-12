@@ -8,10 +8,10 @@
 
 ### Our Tools
 Github, [what is it?](https://www.howtogeek.com/180167/htg-explains-what-is-github-and-what-do-geeks-use-it-for/). Basically version control and code sharing
-[Bootstrap](https://getbootstrap.com/), for formatting
-MongoDB
-Meteor
-Vue
+\[Bootstrap](https://getbootstrap.com/), for formatting
+\MongoDB
+\Meteor
+\Vue
 
 ### Info and Resources
 [Github markdown](https://guides.github.com/features/mastering-markdown/) (aka, how I formatted this)
