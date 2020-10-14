@@ -25,7 +25,7 @@
       
     </header>
     <ul>
-      <Task v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" />
+      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
     </ul>
   </div>
 </template>
@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       newTask: "",
-      hideCompleted: false
+      hideCompleted: false,
+      temp: 23
     };
   },
   methods: {
