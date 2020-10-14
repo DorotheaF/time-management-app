@@ -15,3 +15,4 @@ Vue
 
 ### Info and Resources
 [Github markdown](https://guides.github.com/features/mastering-markdown/) (aka, how I formatted this)  
+[Premade Calendar](https://mdbootstrap.com/plugins/jquery/full-calendar/)
