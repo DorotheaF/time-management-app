@@ -11,6 +11,6 @@
   import { Meteor } from "meteor/meteor";
   import Vue from "vue";
 
-
+// whyyyyyy
   //export default { }
 </script>
