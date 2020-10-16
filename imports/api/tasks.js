@@ -13,18 +13,19 @@ export const Tasks = new Mongo.Collection('tasks');
 */ 
 
 Meteor.methods({
-    'task.addTask'(name, est, due, subj) {
-        if (taskName==""){
-            throw new Meteor.Error('task-not-labeled', "Can't find my pants"); //does this stop it from running?
+    'task.addTask'(array) {
+        
+        if (array[0]==""){ 
+            throw new Meteor.Error('task-not-labeled', "The task does not have a title"); //does this stop it from running?
         }
         //add user check
         //add throw warning for empty fields
 
         Tasks.insert({ //automatically adds unique _id
-            taskName: name,
-            timeEst: est, //estimated time to complete
-            dueDate: due, 
-            subject: subj //the class/category it is for
+            taskName: array[0],
+            timeEst: array[1], //estimated time to complete
+            dueDate: array[2], 
+            subject: array[3] //the class/category it is for
         });
     },
     'task.removeTask'(taskName) { //should use _id?
