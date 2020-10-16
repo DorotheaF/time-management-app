@@ -10,7 +10,7 @@ export const Tasks = new Mongo.Collection('tasks');
     subject: { type: String } //the class/category it is for
 }
 
-*/
+*/ 
 
 Meteor.methods({
     'task.addTask'(name, est, due, subj) {
