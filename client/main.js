@@ -14,7 +14,7 @@ Meteor.startup(() => {
     el: '#app',
     ...App,
   });
-  new Vue2({
+  new Vue({
     el: '#mainpage',
     ...MainPage,
   })
