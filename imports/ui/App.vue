@@ -48,7 +48,7 @@
   </div>
   
 </template>
- 
+
 <script>
 import { Meteor } from "meteor/meteor";
 import Vue from "vue";
@@ -60,16 +60,17 @@ export default {
   name: 'app',
   components: {
     MenuBurger,
-    SideBar
+    SideBar,
+    Task
   },
   
-  components: {
-    Task,
-  },
+ 
   data() {
     return {
       newTask: "",
-      hideCompleted: false
+      hideCompleted: false,
+      //isBurgerActive: false,
+      //isPanelOpen: true,
     };
   }, //Checkbox for hiding added components starts empty when you first open the website, and the newTask is also set to blank
   methods: {
