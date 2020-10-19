@@ -24,6 +24,9 @@
       </form>
       
     </header>
+    <div id="app">
+      <Calendar />
+    </div>
     <ul>
       <Task v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" />
     </ul>
@@ -35,10 +38,12 @@ import { Meteor } from "meteor/meteor";
 import Vue from "vue";
 import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
+import Calendar from "./calendarstuff/Calendar.vue";
  
 export default {
   components: {
-    Task
+    Task, 
+    Calendar
   },
   data() {
     return {
