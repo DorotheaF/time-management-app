@@ -31,6 +31,7 @@
     </header>
     <ul>
       <Task v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" />
+      
     </ul>
      <div id="app">
       <Calendar />
@@ -49,6 +50,7 @@ export default {
   components: {
     Task, 
     Calendar
+    
   },
   data() {
     return {
