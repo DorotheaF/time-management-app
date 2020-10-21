@@ -1,22 +1,17 @@
 <template>
   <div className="container">
     <div id="app">
-      <nav class="main-nav">
-        <div class="logo">
+       <div class="logo">
           Potatoe.tomatoe
         </div>
-        <MainBurger></MainBurger>
+      <nav class="main-nav">
+      <SideBar></SideBar>  
       </nav>
 
-      <SideBar>
-        <ul class="sidebar-panel-nav">
-          <li><a href="#Main">MainPage</a></li>
-          <li><a href="#Task">Task</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </SideBar>
+      
     </div>
     <header>
+      
       <h1>Todo List ({{ incompleteCount }}) </h1>
        <label className="hide-completed">
         <input
@@ -55,11 +50,11 @@ import Vue from "vue";
 import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
 import SideBar from "../ui/SideBar.vue"; 
-import MenuBurger from "../ui/MenuBurger.vue";
+//import MenuBurger from "../ui/MenuBurger.vue";
 export default {
   name: 'app',
   components: {
-    MenuBurger,
+    //MenuBurger,
     SideBar,
     Task
   },

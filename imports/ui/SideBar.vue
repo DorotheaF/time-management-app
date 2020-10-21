@@ -1,28 +1,28 @@
 <template>
-    <div class="sidebar">
-        <div class="sidebar-backdrop" @click="closeSidebarPanel" v-if="isPanelOpen"></div>
-        <transition name="slide">
-            <div v-if="isPanelOpen"
-                 class="sidebar-panel">
-                <slot></slot>
-            </div>
-        </transition>
-    </div>
+  <div>
+    <b-button v-b-toggle.sidebar-no-header>Toggle Sidebar</b-button>
+    <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
+      
+        <div class="p-3">
+          <h4 id="sidebar-no-header-title">Custom header sidebar</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+          <nav class="mb-3">
+            <b-nav vertical>
+              <b-nav-item active @click="hide">Active</b-nav-item>
+              <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
+              <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
+            </b-nav>
+          </nav>
+          <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
+        </div>
+    
+    </b-sidebar>
+  </div>
 </template>
-<script>
-    import { store, mutations } from '@/store.js'
 
-    export default {
-        methods: {
-            closeSidebarPanel: mutations.toggleNav
-        },
-        computed: {
-            isPanelOpen() {
-                return store.isNavOpen
-            }
-        }
-    }
-</script>
 <style>
     .slide-enter-active,
     .slide-leave-active
