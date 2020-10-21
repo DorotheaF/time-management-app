@@ -21,15 +21,20 @@
           placeholder="Type to add new tasks"
           v-model="newTask"
         />
+        <input 
+          type="date"
+          placeholder="Enter the date"
+          v-model="taskDate"
+        /> //stopped here, figure out how to get events conditionally imported into the calendar.
       </form>
       
     </header>
-    <div id="app">
-      <Calendar />
-    </div>
     <ul>
       <Task v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" />
     </ul>
+     <div id="app">
+      <Calendar />
+    </div>
   </div>
 </template>
  
@@ -48,7 +53,9 @@ export default {
   data() {
     return {
       newTask: "",
-      hideCompleted: false
+      hideCompleted: false,
+      taskDate: "",
+
     };
   }, //Checkbox for hiding added components starts empty when you first open the website, and the newTask is also set to blank
   methods: {

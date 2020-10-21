@@ -5,7 +5,7 @@
 </template>
 
 <script>
-const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 export default {
   name: "CalendarWeekdays",
@@ -22,10 +22,15 @@ export default {
 .day-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-}
+  }
 
 .day-of-week > * {
-  text-align: right;
+  text-align: center;
+  text-emphasis: bold black;
   padding-right: 5px;
+  border-right: 2.5px solid black;
+  border-left: 2.5px solid black;
+  border-top: 2.5px solid black;
+  border-bottom: 1.25px solid black;
 }
 </style>

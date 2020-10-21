@@ -9,7 +9,7 @@
       v-bind:checked="!!this.task.checked"
       @click="toggleChecked"
     />
- 
+     
     <span class="text">{{ this.task.text }}</span>
   </li>
 </template>

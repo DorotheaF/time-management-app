@@ -7,6 +7,7 @@
     }"
   >
     <span>{{ label }}</span>
+    <ol>Figure out how to</ol>
   </li>
 </template>
 
@@ -48,31 +49,37 @@ export default {
   font-size: 16px;
   background-color: #fff;
   color: var(--grey-800);
-  padding: 5px;
+  padding: 4px;
+  border-right:1.25px solid black;
+  border-left: 1.25px solid black;
+  border-top: 1.25px solid black;
+  border-bottom:1.25px solid black;  
+  
 }
 
 .calendar-day > span {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 2px;
+  justify-content: left;
+  align-items: left;
+  position: left;
+ 
   width: var(--day-label-size);
   height: var(--day-label-size);
-}
+  }
 
 .calendar-day--not-current {
-  background-color: var(--grey-100);
+  background-color: grey;
   color: var(--grey-300);
 }
 
 .calendar-day--today {
   padding-top: 4px;
+  background-color: lightgreen;
+  
 }
 
 .calendar-day--today > span {
-  color: #fff;
-  border-radius: 9999px;
+    border-radius: 9999px;
   background-color: var(--grey-800);
 }
 </style>

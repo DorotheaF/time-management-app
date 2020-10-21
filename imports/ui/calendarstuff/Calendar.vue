@@ -160,15 +160,16 @@ export default {
 <style scoped>
 .calendar-month {
   position: relative;
-  background-color: var(--grey-200);
-  border: solid 1px var(--grey-300);
+  text-align: center;
+  background-color: white;
+  
 }
 
 .day-of-week {
   color: var(--grey-800);
   font-size: 18px;
   background-color: #fff;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   padding-top: 10px;
 }
 
@@ -188,6 +189,6 @@ export default {
   position: relative;
   grid-column-gap: var(--grid-gap);
   grid-row-gap: var(--grid-gap);
-  border-top: solid 1px var(--grey-200);
+  border-top: solid 1px black;
 }
 </style>
