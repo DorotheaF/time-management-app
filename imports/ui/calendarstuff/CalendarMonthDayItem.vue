@@ -7,7 +7,7 @@
     }"
   >
     <span>{{ label }}</span>
-    <ol>Figure out how to</ol>
+    <ol>Figure out how </ol>
   </li>
 </template>
 

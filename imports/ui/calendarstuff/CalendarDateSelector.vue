@@ -1,8 +1,8 @@
 <template>
   <div class="calendar-date-selector">
-    <span @click="selectPrevious">Previous</span>
-    <span @click="selectCurrent">Today</span>
-    <span @click="selectNext">Next</span>
+    <span @click="selectPrevious">Previous Month</span>
+    <span @click="selectCurrent">Current Month</span>
+    <span @click="selectNext">Next Month</span>
   </div>
 </template>
 

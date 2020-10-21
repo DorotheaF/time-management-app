@@ -25,7 +25,7 @@
           type="date"
           placeholder="Enter the date"
           v-model="taskDate"
-        /> //stopped here, figure out how to get events conditionally imported into the calendar.
+        /> <!-- //stopped here, figure out how to get events conditionally imported into the calendar. -->
       </form>
       
     </header>
