@@ -126,3 +126,16 @@ body {
       padding-bottom: 5px;
     }
   }
+
+  .content{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-item{
+    width: 300px;
+  }
+
+  .todo{
+    width: 1500px; //change to dynamic viewport minus 300px
+  }
