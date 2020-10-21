@@ -1,7 +1,7 @@
 <template>
   <li v-bind:class="taskClassName">
 
-    <button type="button" class="btn btn-outline-warning" @click="deleteThisTask">Delete</button>
+    <button type="button" class="btn btn-outline-warning" @click="deleteThisTask">{{yello}}</button>
  
     <input
       type="checkbox"
@@ -18,8 +18,8 @@
 import { Tasks } from "../api/tasks.js";
  
 export default {
-  props: ["task"],
-  data() {
+  props: ["task", "yello"],
+  data() { 
     return {};
   },
   computed: {

@@ -6,10 +6,16 @@ Vue.use(VueMeteorTracker);
  
 import '../imports/startup/accounts-config.js';
 import App from '../imports/ui/App.vue';
+import MainPage from '../imports/ui/MainPage.vue';
  
 Meteor.startup(() => {
   new Vue({
+    //route = whatever is in the top bar (or whatever) "www.app.com/xxx"
+    //route =  Calender (or Diagnostic or whatever)
     el: '#app',
-    ...App,
+    //if route = ""
+    ...MainPage,
+    //if route = calendar 
+    // ...Calendar
   });
 });

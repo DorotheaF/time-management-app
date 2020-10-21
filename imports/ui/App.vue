@@ -30,7 +30,7 @@
       
     </header>
     <ul>
-      <Task v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" />
+      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1" />
       
     </ul>
      <div id="app">
@@ -56,7 +56,7 @@ export default {
     return {
       newTask: "",
       hideCompleted: false,
-      taskDate: "",
+      temp: 23,
 
     };
   }, //Checkbox for hiding added components starts empty when you first open the website, and the newTask is also set to blank
