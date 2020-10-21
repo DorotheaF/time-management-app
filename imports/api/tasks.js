@@ -34,6 +34,7 @@ Meteor.methods({
       },
     //update date
     //update title
+    //fetch tasks 
 
   })
 
