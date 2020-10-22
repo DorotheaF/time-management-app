@@ -49,13 +49,9 @@ import { Meteor } from "meteor/meteor";
 import Vue from "vue";
 import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
-import SideBar from "../ui/SideBar.vue"; 
-//import MenuBurger from "../ui/MenuBurger.vue";
 export default {
   name: 'app',
   components: {
-    //MenuBurger,
-    SideBar,
     Task
   },
   
