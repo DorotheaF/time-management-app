@@ -7,6 +7,7 @@ Vue.use(VueMeteorTracker);
 import '../imports/startup/accounts-config.js';
 import App from '../imports/ui/App.vue';
 import MainPage from '../imports/ui/MainPage.vue';
+import Calendar from '../imports/ui/calendarstuff/Calendar.vue';
  
 Meteor.startup(() => {
   new Vue({
@@ -14,8 +15,8 @@ Meteor.startup(() => {
     //route =  Calender (or Diagnostic or whatever)
     el: '#app',
     //if route = ""
-    ...MainPage,
+    //...MainPage,
     //if route = calendar 
-    // ...Calendar
+     ...Calendar,
   });
 });
