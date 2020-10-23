@@ -1,5 +1,5 @@
 <template>
-  <div>MainPage</div>
+  <div>Diagnostics</div>
 </template>
 
 <script>
