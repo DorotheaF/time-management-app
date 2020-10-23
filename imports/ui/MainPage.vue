@@ -51,6 +51,20 @@
                 <ul>
                 <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
                 </ul>
+
+                <div class="chunkyrow">
+                  <div class="bluecontainer">
+                    <div class="prioritylist">
+                      <h1> Priority List </h1>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <div class="daycalendar">
+                        <h1>Box for the calendar to go into </h1>
+                    </div>
+                  </div>
+                </div>  
             </div>      
 
         </div>           

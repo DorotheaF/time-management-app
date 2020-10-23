@@ -1,15 +1,6 @@
 <template>
   <div className="container">
-    <div id="app">
-       <div class="logo">
-          Potatoe.tomatoe
-        </div>
-      <nav class="main-nav">
-      <SideBar></SideBar>  
-      </nav>
-
-      
-    </div>
+   
     <header>
       
       <h1>Todo List ({{ incompleteCount }}) </h1>
