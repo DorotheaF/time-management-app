@@ -1,8 +1,5 @@
 <template>
     <div class="mainpage">
-        <div class="header">
-            Main Page
-        </div>
         <div class="content">   
 
             <div class="menu">
@@ -61,14 +58,32 @@
                   </div>
 
                   <div class="daycalendar">
-                    <div style= "flex-grow: 2">
+                    <div style= "flex-grow: 5">
                     <h1>Next Three Days 
                          We don’t always agree with each other, and that is perhaps why I am then able to value our relationship all the more. You have shown me how much deeper a friendship can go, and how important it is to hold on to those you care about. Linsey, you are considerate and yet strong willed. When you have a want or need, you let nothing get in your way, and yet you know how to reach out to others, and how to listen. 
                     </h1>
                     </div>
                   </div>
                   
+              </div>
+              <div class="chunkyrow">
+                <div class=daycalendar>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="">Enter New Task</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="">Enter New Project</a>
+                  </li>
+                  <li class = "nav-item">
+                     <a class="nav-link active" href="">Start New Session</a>
+                </div>
 
+                <div class=daycalendar>
+                  <h1>All Classes</h1>
+                  <h1>Math</h1>
+                  <h1>English</h1>
+                  <h1>Chemistry. The bane of one's existence</h1>
+                </div>
               </div>
                    
             </div>      
