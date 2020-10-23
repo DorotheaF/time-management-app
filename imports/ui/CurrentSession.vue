@@ -1,5 +1,5 @@
 <template>
-  <div>MainPage</div>
+  <div>Current Session</div>
 </template>
 
 <script>

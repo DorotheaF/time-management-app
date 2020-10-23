@@ -1,42 +1,35 @@
 <template>
-  <div className="container">
-    <header>
-      <h1>Todo List ({{ incompleteCount }}) </h1>
-       <label className="hide-completed">
-        <input
-          type="checkbox"
-          readOnly
-          checked="hideCompleted"
-          v-model="hideCompleted"
-          @click="toggleHideCompleted"
-        />
-        Hide Completed Tasks
-      </label>
+    <div class="app">
+        <div class="header">
+            Time Management App 
+            <!-- add text for what component is currently rendered -->
+        </div>
+        <div class="content">   
 
-      <!-- <blaze-template template="loginButtons" tag="span"></blaze-template> -->
+            <div class="menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <router-link to="/">Main Page</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/currentsession">Current Session</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/calendar">Calendar</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/diagnostics">Diagnostics</router-link>
+                    </li>
+                </ul>
+            </div>
+                
 
-      <form className="new-task" @submit.prevent="handleSubmit">
-        <input
-          type="text"
-          placeholder="Type to add new tasks"
-          v-model="newTask"
-        />
-        <input 
-          type="date"
-          placeholder="Enter the date"
-          v-model="taskDate"
-        /> <!-- //stopped here, figure out how to get events conditionally imported into the calendar. -->
-      </form>
-      
-    </header>
-    <ul>
-      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1" />
-      
-    </ul>
-     <div id="app">
-      <Calendar />
+            <div class="todo">            
+              <router-view></router-view>
+            </div>      
+
+        </div>           
     </div>
-  </div>
 </template>
  
 <script>
