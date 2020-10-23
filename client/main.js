@@ -19,8 +19,4 @@ Meteor.startup(() => {
     //if route = calendar 
     // ...Calendar
   });
-  new Vue({
-    el: '#mainpage',
-    ...MainPage,
-  })
 });

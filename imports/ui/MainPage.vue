@@ -54,17 +54,19 @@
 
                 <div class="chunkyrow">
                   <div class="bluecontainer">
-                    <div class="prioritylist">
+                    <div class="prioritylist" style= "flex-grow: 1">
                       <h1> Priority List </h1>
+                      <h1> In these past 5 years however, you have also become my friend. The first time you asked me if you could be my best friend, I laughed it off, mainly because you meant it as a joke, but also because it seemed redonkulous at the time. But not only have you made me who I am, but I have shared some of the most meaningful laughs and memories of my life with you. You might not have had the choice to have me for a daughter, but you did have the choice to make your friend, and I am so grateful for that.</h1>
                     </div>
                   </div>
 
                   <div class="container">
-                    <div class="daycalendar">
-                        <h1>Box for the calendar to go into </h1>
+                    <div class="daycalendar" style= "flex-grow:1">
+                        <h1>Next Three Days </h1>
                     </div>
                   </div>
-                </div>  
+              </div>
+                   
             </div>      
 
         </div>           

@@ -142,26 +142,27 @@ body {
   .daycalendar{
     display: flex;
     flex-direction: column;
-    order: 2;
   }
   .prioritylist{
     display: flex;
     flex-direction: column;
-    order: 1;
+    
   }
 
   .bluecontainer {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     min-height: 100%;
-    background: blueviolet
-    //color: rgb(71, 27, 233);
+    background: rgb(43, 101, 226)
+    
 
   }
   
   .chunkyrow {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    
    
   }
 
