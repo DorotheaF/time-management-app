@@ -20,7 +20,7 @@ body {
   }
 
   .container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     min-height: 100%;
     background: white;
@@ -142,22 +142,21 @@ body {
   .daycalendar{
     display: flex;
     flex-direction: column;
+    background-color: whitesmoke;
+    flex-grow: 2;
+    
   }
   .prioritylist{
     display: flex;
     flex-direction: column;
+    background: rgb(43, 101, 226);
+    flex-grow: 1;
+    
+
+    
     
   }
 
-  .bluecontainer {
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: 100%;
-    background: rgb(43, 101, 226)
-    
-
-  }
-  
   .chunkyrow {
     display: flex;
     flex-direction: row;
