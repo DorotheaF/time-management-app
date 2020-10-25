@@ -1,10 +1,19 @@
 <template>
-    <div class="app">
-        <div class="header">
-            Time Management App 
-            <!-- add text for what component is currently rendered -->
-        </div>
-        <div class="content">   
+  <div className="container">
+   
+    <header>
+      
+      <h1>Todo List ({{ incompleteCount }}) </h1>
+       <label className="hide-completed">
+        <input
+          type="checkbox"
+          readOnly
+          checked="hideCompleted"
+          v-model="hideCompleted"
+          @click="toggleHideCompleted"
+        />
+        Hide Completed Tasks
+      </label>
 
             <div class="menu">
                 <ul class="nav flex-column">
@@ -24,27 +33,38 @@
             </div>
                 
 
-            <div class="todo">            
-              <router-view></router-view>
-            </div>      
+      <form className="new-task" @submit.prevent="handleSubmit">
+        <input
+          type="text"
+          placeholder="Type to add new tasks"
+          v-model="newTask"
+        />
+      </form>
+      
+    </header>
 
-        </div>           
-    </div>
+    <ul>
+      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
+    </ul>
+
+  </div>
+  
 </template>
- 
+
 <script>
 import { Meteor } from "meteor/meteor";
 import Vue from "vue";
 import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
-import Calendar from "./calendarstuff/Calendar.vue";
- 
 export default {
+  name: 'app',
   components: {
     Task, 
     Calendar
     
   },
+  
+ 
   data() {
     return {
       newTask: "",
@@ -81,3 +101,44 @@ export default {
   }
 };
 </script>
+
+
+<style>
+html {
+   height: 100%;
+   overflow:hidden;
+ }
+
+ body {
+   border: 0; margin: 0; padding: 0;
+   font-family: 'Lato';
+   height: 100%;
+   background: rgb(101,31,87);
+   background: linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,1) 48%, rgba(249,248,113,1) 100%);
+ }
+
+ .logo {
+   align-self: center;
+   color: #fff;
+   font-weight: bold;
+   font-family: 'Lato'
+ }
+
+ .main-nav {
+   display: flex;
+   justify-content: space-between;
+   padding: 0.5rem 0.8rem;
+ }
+
+ ul.sidebar-panel-nav {
+   list-style-type: none;
+ }
+
+ ul.sidebar-panel-nav > li > a {
+   color: #fff;
+   text-decoration: none;
+   font-size: 1.5rem;
+   display: block;
+   padding-bottom: 0.5em;
+ }
+</style>

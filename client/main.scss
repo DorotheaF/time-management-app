@@ -3,8 +3,8 @@
 body {
     padding: 10px;
     font-family: sans-serif;
-    background-color: rgb(157, 157, 179);
-    background-image: linear-gradient(to bottom, #797979, #db8718 100%);
+    background: rgb(101,31,87);
+    background: linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,1) 48%, rgba(249,248,113,1) 100%);
     background-attachment: fixed;
    
     position: absolute;
@@ -20,7 +20,7 @@ body {
   }
 
   .container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     min-height: 100%;
     background: white;
@@ -28,7 +28,7 @@ body {
    
   header {
     background: #b91c92;
-    background-image: linear-gradient(to bottom, #a32788, #35b30f 100%);
+    background-image: linear-gradient(to bottom, #a32788, #1888e4 100%);
     padding: 20px 15px 15px 15px;
     position: relative;
   }
@@ -142,3 +142,25 @@ body {
   .todo{
     width: 1500px; //change to dynamic viewport minus 300px
   }
+  .daycalendar{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    flex-grow: 2;
+    
+  }
+  .prioritylist{
+    display: flex;
+    flex-direction: column;
+    background: rgb(43, 101, 226);
+    flex-grow: 1;
+    
+  }
+
+  .chunkyrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+ 
