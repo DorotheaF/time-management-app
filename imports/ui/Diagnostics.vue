@@ -1,6 +1,5 @@
 <template>
-  <div>Current Session</div>
-  
+  <div>Diagnostics</div>
 </template>
 
 <script>
