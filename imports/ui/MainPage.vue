@@ -2,22 +2,6 @@
     <div class="mainpage">
         <div class="content">   
 
-            <div class="menu">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">Main Page</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="CurrentSession">Current Session</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Calendar">Calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Diagnostics">Diagnostics</a>
-                    </li>
-                </ul>
-            </div>
                 
 
             <div class="todo">            
@@ -76,6 +60,7 @@
                   </li>
                   <li class = "nav-item">
                      <a class="nav-link active" href="">Start New Session</a>
+                  </li>
                 </div>
 
                 <div class=daycalendar>
@@ -90,7 +75,7 @@
 
         </div>           
     </div>
-  <div>MainPage</div>
+  
 </template>
 
 <script>
