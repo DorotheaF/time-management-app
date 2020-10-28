@@ -2,22 +2,6 @@
     <div class="mainpage">
         <div class="content">   
 
-            <div class="menu">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">Main Page</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="CurrentSession">Current Session</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Calendar">Calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Diagnostics">Diagnostics</a>
-                    </li>
-                </ul>
-            </div>
                 
 
             <div class="todo">            
@@ -91,14 +75,13 @@
 
         </div>           
     </div>
+  
 </template>
  
 <script>
-import { Meteor } from "meteor/meteor";
-import Vue from "vue";
-import Task from "./Task.vue";
-import { Tasks } from "../api/tasks.js";
- 
 export default {
 }
 </script>
+
+<style>
+</style>

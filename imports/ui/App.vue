@@ -1,19 +1,10 @@
 <template>
-  <div className="container">
-   
-    <header>
-      
-      <h1>Todo List ({{ incompleteCount }}) </h1>
-       <label className="hide-completed">
-        <input
-          type="checkbox"
-          readOnly
-          checked="hideCompleted"
-          v-model="hideCompleted"
-          @click="toggleHideCompleted"
-        />
-        Hide Completed Tasks
-      </label>
+    <div class="app">
+        <div class="header">
+            Time Management App 
+            <!-- add text for what component is currently rendered -->
+        </div>
+        <div class="content">   
 
             <div class="menu">
                 <ul class="nav flex-column">
@@ -33,22 +24,12 @@
             </div>
                 
 
-      <form className="new-task" @submit.prevent="handleSubmit">
-        <input
-          type="text"
-          placeholder="Type to add new tasks"
-          v-model="newTask"
-        />
-      </form>
-      
-    </header>
+            <div class="todo">            
+              <router-view></router-view>
+            </div>      
 
-    <ul>
-      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
-    </ul>
-
-  </div>
-  
+        </div>           
+    </div>
 </template>
 
 <script>
@@ -59,9 +40,7 @@ import { Tasks } from "../api/tasks.js";
 export default {
   name: 'app',
   components: {
-    Task, 
-    Calendar
-    
+    //Task
   },
   
  
@@ -74,30 +53,7 @@ export default {
     };
   }, //Checkbox for hiding added components starts empty when you first open the website, and the newTask is also set to blank
   methods: {
-    handleSubmit(event) {
-      Tasks.insert({
-        text: this.newTask,
-        createdAt: new Date(), // current time
-      }); 
- 
-      // Clear form
-      this.newTask = "";
-    }, //This takes a submission to newTask, assigns it to Tasks, and associates the time it was created, and then allows you to put another newTask in
-    toggleHideCompleted() {
-      this.hideCompleted = !this.hideCompleted;
-    } // When you change the Completed tasks checkmark, it changes from true to false or from false to true
-  },
-  meteor: {
-    tasks() {
-      let filteredTasks = Tasks.find({}, { sort: { createdAt: -1 } }).fetch(); //takes tasks, and sorts them in the order that they were created
-      if (this.hideCompleted) {
-        filteredTasks = filteredTasks.filter(task => !task.checked);
-      } //If hideCompleted is true, it only filters tasks that are not checked
-      return filteredTasks;
-    },
-    incompleteCount() {
-      return Tasks.find({ checked: { $ne: true } }).count();
-    } //How many tasks are not checked
+    
   }
 };
 </script>

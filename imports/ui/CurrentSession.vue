@@ -1,5 +1,6 @@
 <template>
   <div>Current Session</div>
+  
 </template>
 
 <script>
