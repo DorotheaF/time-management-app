@@ -21,7 +21,7 @@ Meteor.startup(() => {
  
 //Meteor.startup(() => {
   
-  //new Vue({
+//new Vue({
     //route = whatever is in the top bar (or whatever) "www.app.com/xxx"
     //route =  Calender (or Diagnostic or whatever)
     //el: '#app',
@@ -30,5 +30,5 @@ Meteor.startup(() => {
     //if route = calendar 
     // ...Calendar
   
-  //});
+ // });
 //});

@@ -76,6 +76,7 @@
                   </li>
                   <li class = "nav-item">
                      <a class="nav-link active" href="">Start New Session</a>
+                  </li>
                 </div>
 
                 <div class=daycalendar>
