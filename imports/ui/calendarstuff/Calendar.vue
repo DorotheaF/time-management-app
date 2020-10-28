@@ -1,28 +1,36 @@
 <template>
-  <div class="calendar-month">
-    <div class="calendar-month-header">
-      <CalendarDateIndicator
-        :selected-date="selectedDate"
-        class="calendar-month-header-selected-month"
-      />
+  <div class="chunkyrow">
 
-      <CalendarDateSelector
-        :current-date="today"
-        :selected-date="selectedDate"
-        @dateSelected="selectDate"
-      />
+    <div class="calendar-month">
+      <div class="calendar-month-header">
+        <CalendarDateIndicator
+          :selected-date="selectedDate"
+          class="calendar-month-header-selected-month"
+        />
+
+        <CalendarDateSelector
+          :current-date="today"
+          :selected-date="selectedDate"
+          @dateSelected="selectDate"
+        />
+      </div>
+
+      <CalendarWeekdays/>
+
+      <ol class="days-grid">
+        <CalendarMonthDayItem
+          v-for="day in days"
+          :key="day.date"
+          :day="day"
+          :is-today="day.date === today"
+        />
+      </ol>
     </div>
 
-    <CalendarWeekdays/>
-
-    <ol class="days-grid">
-      <CalendarMonthDayItem
-        v-for="day in days"
-        :key="day.date"
-        :day="day"
-        :is-today="day.date === today"
-      />
-    </ol>
+    <div class="daycalendar">
+      <h1> This is just for keepsakes, and seeing what happens </h1>
+    </div>
+    
   </div>
 </template>
 
