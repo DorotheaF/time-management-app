@@ -2,8 +2,6 @@
     <div class="mainpage">
         <div class="content">   
 
-                
-
             <div class="todo">            
                 <header>
                 <h1>Todo List ({{ incompleteCount }}) </h1>
@@ -35,41 +33,48 @@
 
                 <div class="chunkyrow">
                   
-                  <div class="prioritylist">
-                    <div style ="flex-grow: 1">
+                  <div class="prioritylist" style="flex-grow:1">
+                    
                     <h1> Priority List Never gonna give you up
                           Never gonna let you down
                           Never gonna run around and desert you
                           Never gonna make you cry
                           Never gonna say goodbye
                           Never gonna tell a lie and hurt you</h1>
-                    </div>
+                  
                   </div>
 
-                  <div class="daycalendar">
-                    <div style= "flex-grow: 5">
+                  <div class="daycalendar" style="flex-grow:2">
+                    
                     <h1>Next Three Days 
-                         Never gonna give you up
-                          Never gonna let you down
-                          Never gonna run around and desert you
-                          Never gonna make you cry
-                          Never gonna say goodbye
-                          Never gonna tell a lie and hurt you 
+                        Hey now, you're an all star
+                        Get your game on, go play
+                        Hey now, you're a rock star
+                        Get the show on, get paid
+                        All that glitters is gold
+                        Only shooting stars break the mold
                     </h1>
-                    </div>
+                    
                   </div>
                   
               </div>
               <div class="chunkyrow">
                 <div class=daycalendar>
                   <li class="nav-item">
-                    <router-link to="/enternewtask">Enter New Task</router-link>
+                    <button type="button" class="btn btn-dark btn-lg" >
+                      <router-link to="/enternewtask">Enter New Task</router-link>
+                      </button>
+                    
                   </li>
                   <li class="nav-item">
+                    <button type="button" class="btn btn-secondary btn-lg">
                     <router-link to="/enternewproject">Enter New Project</router-link>
+                    </button>
                   </li>
                   <li class = "nav-item">
-                     <router-link to="/currentsession">Start New Session</router-link>
+                    <button type="button" class="btn btn-secondary btn-lg">
+                      <router-link to="/currentsession">Start New Session</router-link>
+                     </button>
                   </li>
                 </div>
 
