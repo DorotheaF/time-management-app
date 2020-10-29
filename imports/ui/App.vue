@@ -1,43 +1,57 @@
 <template>
-  
-  <form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom01">What Class?</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="What Class?" value="ex: MATH" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom02">What HW?</label>
-      <input type="text" class="form-control" id="validationCustom02" placeholder="What HW?" value="ex: MATH HW3" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">Due Date</label>
-      <input type="text" class="form-control" id="validationCustom03" placeholder="MM/DD/YYYY" required>
-      <div class="invalid-feedback">
-        Please provide a valid Date.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom04">Estimated Time to finish</label>
-      <input type="text" class="form-control" id="validationCustom04" placeholder="hh/mm" required>
-      <div class="invalid-feedback">
-        Please provide a valid time.
-      </div>
-    </div>
-    
-  </div>
-  
-   <div onSubmit="return confirm('Do you want to submit?') " 
-  <input type="submit" /> </div>
+    <div class="app">
+        <div class="header">
+            Time Management App 
+            <!-- add text for what component is currently rendered -->
+        </div>
+        <div class="content">   
 
-</form>
+            <div class="menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <router-link to="/">Main Page</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/currentsession">Current Session</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/calendar">Calendar</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/diagnostics">Diagnostics</router-link>
+                    </li>
+                </ul>
+            </div>
+                
+
+            <div class="todo">            
+              <router-view></router-view>
+            </div>      
+
+        </div>           
+    </div>
+</template>
+ 
+<script>
+import { Meteor } from "meteor/meteor";
+import Vue from "vue";
+import Task from "./Task.vue";
+import { Tasks } from "../api/tasks.js";
+ 
+export default {
+  components: {
+    //Task
+  },
+  data() {
+    return {
+      newTask: "",
+      hideCompleted: false,
+      temp: 23
+    };
+  },
+  methods: {
+    
+  }
+};
+</script>
 
