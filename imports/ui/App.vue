@@ -8,17 +8,20 @@
 
             <div class="menu">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/">Main Page</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/currentsession">Current Session</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/calendar">Calendar</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/diagnostics">Diagnostics</router-link>
+                    </li>
+                    <li class="menu-item">
+                        <router-link to="/newTask">Add a Task</router-link>
                     </li>
                 </ul>
             </div>

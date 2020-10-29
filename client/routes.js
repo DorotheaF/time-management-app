@@ -3,11 +3,13 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+//To add a route, add here and in App menu
+
 import MainPage from '../imports/ui/MainPage.vue';
 import CurrentSession from '../imports/ui/CurrentSession.vue';
 import Calendar from '../imports/ui/Calendar.vue';
 import Diagnostics from '../imports/ui/Diagnostics.vue';
-
+import NewTask from '../imports/ui/NewTaskForm.vue';
 
 const routes = [
     {
@@ -29,7 +31,12 @@ const routes = [
         path: "/diagnostics",
         name: "Diagnostics",
         component: Diagnostics
-    }    
+    },
+    {
+        path: "/newtask",
+        name: "New Task",
+        component: NewTask
+    }      
 ]
 
 const router = new VueRouter({

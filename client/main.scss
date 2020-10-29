@@ -1,54 +1,49 @@
-//side bar and the small boxes, have to be the same color : (Blue Grey) #DBE1F1 , or #D6EAF8
-
-//background : (Peach) #EDD1B0 or #FBEEE6
-
-//sumbmission buttons :(Darker Blue) #85C1E9 or (light grey) #CCD1D1
-// someone looking sus 
-
-
-
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 //adding some colors
 //variables
+//colors:
+$sidebar1: #DBE1F1;
+$sidebar2: #D6EAF8;
+$background1: #EDD1B0;
+$background2: #FBEEE6;
+$button-dark-blue: #85C1E9;
+$button-grey: #CCD1D1;
+
+//header?
+$header: $sidebar2;
+//
 
 $menu: 300px;
 $width: calc(100% - $menu); //the width of any content trays minus the menu
 
   body {
-    padding: 10px;
+    height: 100%;
+    width: 100%;
     font-family: sans-serif;
-    background-color: rgb(157, 157, 179);
-    background-image: linear-gradient(to bottom, #797979, #db8718 100%);
-    background-attachment: fixed;
-   
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-   
-    padding: 0;
-    margin: 0;
-   
-    font-size: 14px;
+    background-color: $background1;
+    font-size: 14pt;
   }
 
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    min-height: 100%;
-    background: white;
+  .menu{
+    height: 100%;
+    background-color: $sidebar1;
+    font-size: 16;
+    color: black;
+  }
+
+  
+  .menu-item{
+    width: 300px;
+  }
+
+  a{
+    color: black;
   }
    
-  header {
-    background: #b91c92;
-    background-image: linear-gradient(to bottom, #a32788, #35b30f 100%);
+  .header {
+    background: $header;
     padding: 20px 15px 15px 15px;
     position: relative;
-  }
-   
-  #login-buttons {
-    display: block;
   }
    
   h1 {
@@ -57,97 +52,11 @@ $width: calc(100% - $menu); //the width of any content trays minus the menu
     margin-bottom: 10px;
     display: inline-block;
     margin-right: 1em;
-  }
-   
-  form {
-    margin-top: 10px;
-    margin-bottom: -10px;
-    position: relative;
-  }
-   
-  .new-task input {
-    box-sizing: border-box;
-    padding: 10px 0;
-    background: transparent;
-    border: none;
-    width: 100%;
-    padding-right: 80px;
-    font-size: 1em;
-  }
-   
-  .new-task input:focus {
-    outline: 0;
-  }
-   
-  ul {
-    margin: 0;
-    padding: 0;
-    background: white;
-  }
-   
-  .delete {
-    float: right;
-    font-weight: bold;
-    background: none;
-    font-size: 1em;
-    border: none;
-    position: relative;
-  }
-   
-  li {
-    position: relative;
-    list-style: none;
-    padding: 15px;
-    border-bottom: #eee solid 1px;
-  }
-   
-  li .text {
-    margin-left: 10px;
-  }
-   
-  li.checked {
-    color: #888;
-  }
-   
-  li.checked .text {
-    text-decoration: line-through;
-  }
-   
-  li.private {
-    background: #eee;
-    border-color: #ddd;
-  }
-   
-  header .hide-completed {
-    float: right;
-  }
-   
-  .toggle-private {
-    margin-left: 5px;
-  }
-   
-  @media (max-width: 600px) {
-    li {
-      padding: 12px 15px;
-    }
-   
-    .search {
-      width: 150px;
-      clear: both;
-    }
-   
-    .new-task input {
-      padding-bottom: 5px;
-    }
-  }
+  }   
 
   .content{
     display: flex;
     flex-direction: row;
-  }
-
-  .nav-item{
-    width: 300px;
   }
 
   .todo{
@@ -209,4 +118,8 @@ $width: calc(100% - $menu); //the width of any content trays minus the menu
 
   .classes{
     height: 35%;
+  }
+
+  .needs-validation{
+    margin-left: 20px;
   }
