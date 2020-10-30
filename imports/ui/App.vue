@@ -4,7 +4,7 @@
             Time Management App 
             <!-- add text for what component is currently rendered -->
         </div>
-        <div class="content">   
+        <div class="full-page">   
 
             <div class="menu">
                 <ul class="nav flex-column">
@@ -20,14 +20,11 @@
                     <li class="menu-item">
                         <router-link to="/diagnostics">Diagnostics</router-link>
                     </li>
-                    <li class="menu-item">
-                        <router-link to="/newTask">Add a Task</router-link>
-                    </li>
                 </ul>
             </div>
                 
 
-            <div class="todo">            
+            <div class="everything-else">            
               <router-view></router-view>
             </div>      
 

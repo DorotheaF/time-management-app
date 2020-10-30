@@ -13,95 +13,120 @@ $button-grey: #CCD1D1;
 $header: $sidebar2;
 //
 
-$menu: 300px;
-$width: calc(100% - $menu); //the width of any content trays minus the menu
+$menu: 250px;
+$width: calc(100% - 250px); //the width of any content trays minus the menu
 
-  body {
-    height: 100%;
-    width: 100%;
-    font-family: sans-serif;
-    background-color: $background1;
-    font-size: 14pt;
-  }
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
 
-  .menu{
-    height: 100%;
-    background-color: $sidebar1;
-    font-size: 16;
-    color: black;
-  }
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  background-color: $background1;
+  font-size: 14pt;
+}
 
-  
-  .menu-item{
-    width: 300px;
-  }
+.header {
+  background: $header;
+  height: 50px;
+  padding-left: 25px;
+  padding-top: 12px;
+}
 
-  a{
-    color: black;
-  }
-   
-  .header {
-    background: $header;
-    padding: 20px 15px 15px 15px;
-    position: relative;
-  }
-   
-  h1 {
-    font-size: 1.5em;
-    margin: 0;
-    margin-bottom: 10px;
-    display: inline-block;
-    margin-right: 1em;
-  }   
+.menu{
+  height: 100%;
+  background-color: $sidebar1;
+  font-size: 16;
+  color: black;
+}
 
-  .content{
-    display: flex;
-    flex-direction: row;
-  }
 
-  .todo{
-    width: 1500px; //change to dynamic viewport minus 300px
-  }
+.menu-item{
+  width: 300px;
+}
 
-  .content{
-    width: $width;//viewport - 300
-    height: 100%;
-  }
+a{
+  color: black;
+}   
 
-  .column{
-    width: 50%;
-    padding-left: 25px;
-    padding-top: 10px;
+.full-page{
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
 
-  }
- 
-  .priorities{
-    height: 75%;
-  }
+.everything-else{
+  width: $width; //change to dynamic viewport minus 300px
+}
 
-  .title{
-    //format titles
-  }
+.content{
+  width: 100%;//viewport - 300
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
-  .task-list{
-    display: flex;
-    flex-direction: column; 
-    scroll-behavior: auto; //do we want to scrol?
-  }
+.column{
+  width: 50%;
+  height: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
+
+}
+
+.priorities{
+  height: 75%;
+  padding-right: 10px;
+}
+
+.title{
+  //format titles
+}
+
+.task-list{
+  display: flex;
+  flex-direction: column; 
+  scroll-behavior: auto; //do we want to scrol?
+  padding-left: 10px;
 
   .task{
+    width: 100%;
     display: flex;
     flex-direction: row; 
     text-align: left;
     margin: auto;
+    border: 1px $header;
+    border-style: solid;
+    padding-left: 10px;
+    justify-content: space-between;
+    .text{
+      display: flex;
+      .index{
+        margin-right: 5px;
+      }
+      .title{
+      }
+    }    
+    .time-est{
+      margin-right: 7px;
+    }
   }
+}
 
-  .new-task{
-    display: flex;
-    flex-direction: row; 
-    text-align: center;
-    margin: auto;
-  }
+
+
+.new-task{
+  display: flex;
+  flex-direction: row; 
+  text-align: center;
+  margin: auto;
 
   .new-task-button{
     width: 30px; 
@@ -111,15 +136,48 @@ $width: calc(100% - $menu); //the width of any content trays minus the menu
     font-size: 8px; 
     text-align: center; 
   }
+}
 
+
+
+.mini-calendar-tray{
+  height: 65%;
+  margin-right: 20px;
   .mini-calendar{
-    height: 65%;
+    height: calc(100% - 30px);
+    display: flex;
+    .cal-column{
+      height:100%;
+      width: 33.33%;
+      border: 1px black;
+      border-style: solid;
+      padding: 5px;
+      .line{
+        background-color: black;
+        height: 2px;
+      }
+    }
   }
+  
+}
 
+.classes-tray{
+  height: 35%;
   .classes{
-    height: 35%;
+    height: calc(100% - 40px);
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .class-item{
+      margin: 10px;
+    }
   }
+}
 
-  .needs-validation{
-    margin-left: 20px;
-  }
+.needs-validation{
+  margin-left: 20px;
+}

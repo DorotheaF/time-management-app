@@ -42,19 +42,16 @@ Meteor.methods({
         //get current date
         //make call searching for tasks organized by not completed and duedate - currentdate (> 0) ascending limited to 5
         //Tasks.find( { $query: {}, $orderby: { date : 1 } } )
-        const cursor = Tasks.find();
+        cursor = Tasks.find();
         array = [];
-        obj = {_id: "x", taskName: "x", timeEst: "x", dueDate: "x", subject: "x"}
 
-        cursor.forEach(element => {
-            obj._id = element._id; 
-            obj.taskName = element.taskName;
-            console.log(obj.taskName);
-            obj.timeEst = element.timeEst;
-            obj.dueDate = element.dueDate;
-            obj.subject = element.subject;
+        
+        cursor.map(element => { //TODO: make this work for 2 items in database
+            console.log(element.taskName);
             array.push(element);
         });
+        
+        
         console.log("The array is \n" + array);
         i = 0;
         for (i; i<3; i++){

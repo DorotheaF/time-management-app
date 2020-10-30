@@ -1,12 +1,14 @@
 <template>
   <li class="task">
-    <div class="number">
-      {{ index }}
-    </div> 
-    <div>
-      <span class="text">{{ this.task.taskName }}</span>
-    </div>
-    <div>
+    <div class="text">
+       <div class="index">
+        {{ index + ")"}}
+      </div> 
+      <div class="title">
+        {{ this.task.taskName }}
+      </div>
+    </div>   
+    <div class="time-est">
       {{ this.task.timeEst }}
     </div>
     
