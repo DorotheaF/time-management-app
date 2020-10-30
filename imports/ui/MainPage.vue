@@ -32,27 +32,20 @@
                 </ul>
 
                 <div class="chunkyrow">
-                  
-                  <div class="prioritylist" style="flex-grow:1">
-                    
-                    <h1> Priority List Never gonna give you up
-                          Never gonna let you down
-                          Never gonna run around and desert you
-                          Never gonna make you cry
-                          Never gonna say goodbye
-                          Never gonna tell a lie and hurt you</h1>
-                  
+
+                  <div class="prioritylist">
+                    <div style ="flex-grow: 1">
+                    <h1> Never gonna give you up, never gonna let you down, never gonna run around and desert you, never gonna make you cry, never gonna say goodbye, never gonna tell a lie and hurt you.</h1>
+                    </div>
+
                   </div>
 
                   <div class="daycalendar" style="flex-grow:2">
                     
                     <h1>Next Three Days 
-                        Hey now, you're an all star
-                        Get your game on, go play
-                        Hey now, you're a rock star
-                        Get the show on, get paid
-                        All that glitters is gold
-                        Only shooting stars break the mold
+
+                          Monday            Tuesday             Wednesday
+
                     </h1>
                     
                   </div>

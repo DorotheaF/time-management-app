@@ -4,27 +4,27 @@
             Time Management App 
             <!-- add text for what component is currently rendered -->
         </div>
-        <div class="content">   
+        <div class="full-page">   
 
             <div class="menu">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/">Main Page</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/currentsession">Current Session</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/calendar">Calendar</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="menu-item">
                         <router-link to="/diagnostics">Diagnostics</router-link>
                     </li>
                 </ul>
             </div>
                 
 
-            <div class="todo">            
+            <div class="everything-else">            
               <router-view></router-view>
             </div>      
 

@@ -1,165 +1,188 @@
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 //adding some colors
+//variables
+
+//colors:
+$sidebar1: #DBE1F1;
+$sidebar2: #D6EAF8;
+$background1: #EDD1B0;
+$background2: #FBEEE6;
+$button-dark-blue: #85C1E9;
+$button-grey: #CCD1D1;
+
+//header?
+$header: $sidebar2;
+//
+
+$menu: 250px;
+$width: calc(100% - 250px); //the width of any content trays minus the menu
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
 
 body {
-    padding: 10px;
-    font-family: sans-serif;
-    background: rgb(101,31,87);
-    background: linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,1) 48%, rgba(249,248,113,1) 100%);
-    background-attachment: fixed;
-   
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-   
-    padding: 0;
-    margin: 0;
-   
-    font-size: 14px;
-  }
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  background-color: $background1;
+  font-size: 14pt;
+}
 
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: 100%;
-    background: white;
-  }
-   
-  header {
-    background: #b91c92;
-    background-image: linear-gradient(to bottom, #a32788, #1888e4 100%);
-    padding: 20px 15px 15px 15px;
-    position: relative;
-  }
-   
-  h1 {
-    font-size: 1.5em;
-    margin: 0;
-    margin-bottom: 10px;
-    display: inline-block;
-    margin-right: 1em;
-  }
-  ol {
-    padding: 05px;
-    margin-bottom: 0px;
-  }
-  form {
-    margin-top: 10px;
-    margin-bottom: -10px;
-    position: relative;
-  }
-   
-  .new-task input {
-    box-sizing: border-box;
-    padding: 10px 0;
-    background: transparent;
-    border: none;
-    width: 100%;
-    padding-right: 80px;
-    font-size: 1em;
-  }
-   
-  .new-task input:focus {
-    outline: 0;
-  }
-   
-  ul {
-    margin: 0;
-    padding: 0;
-    background: white;
-  }
-   
-  .delete {
-    float: right;
-    font-weight: bold;
-    background: none;
-    font-size: 1em;
-    border: none;
-    position: relative;
-  }
-   
-  li {
-    position: relative;
-    list-style: none;
-    padding: 15px;
-    border-bottom: #eee solid 1px;
-  }
-   
-  li .text {
-    margin-left: 10px;
-  }
-   
-  li.checked {
-    color: #888;
-  }
-   
-  li.checked .text {
-    text-decoration: line-through;
-  }
-   
-  li.private {
-    background: #eee;
-    border-color: #ddd;
-  }
-   
-  header .hide-completed {
-    float: right;
-  }
-   
-  .toggle-private {
-    margin-left: 5px;
-  }
-   
-  @media (max-width: 600px) {
-    li {
-      padding: 12px 15px;
-    }
-   
-    .search {
-      width: 150px;
-      clear: both;
-    }
-   
-    .new-task input {
-      padding-bottom: 5px;
-    }
-  }
-
-  .content{
-    display: flex;
-    flex-direction: row;
-  }
-
-  .nav-item{
-    width: 300px;
-  }
-
-  .todo{
-    //width: 1500px; //change to dynamic viewport minus 300px
-    display: flex;
-    flex-direction: column;
-  }
-  .daycalendar{
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-    flex-grow: 2;
-    
-  }
-  .prioritylist{
-    display: flex;
-    flex-direction: column;
-    background: rgb(43, 101, 226);
-    flex-grow: 1;
-    
-  }
-
-  .chunkyrow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
 
  
+.header {
+  background: $header;
+  height: 50px;
+  padding-left: 25px;
+  padding-top: 12px;
+}
+
+.menu{
+  height: 100%;
+  background-color: $sidebar1;
+  font-size: 16;
+  color: black;
+}
+
+
+.menu-item{
+  width: 300px;
+}
+
+a{
+  color: black;
+}   
+
+.full-page{
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.everything-else{
+  width: $width; //change to dynamic viewport minus 300px
+}
+
+.content{
+  width: 100%;//viewport - 300
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.column{
+  width: 50%;
+  height: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
+
+}
+
+.priorities{
+  height: 75%;
+  padding-right: 10px;
+}
+
+.title{
+  //format titles
+}
+
+.task-list{
+  display: flex;
+  flex-direction: column; 
+  scroll-behavior: auto; //do we want to scrol?
+  padding-left: 10px;
+
+
+  .task{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    text-align: left;
+    margin: auto;
+    border: 1px $header;
+    border-style: solid;
+    padding-left: 10px;
+    justify-content: space-between;
+    .text{
+      display: flex;
+      .index{
+        margin-right: 5px;
+      }
+      .title{
+      }
+    }    
+    .time-est{
+      margin-right: 7px;
+    }
+  }
+}
+
+
+
+.new-task{
+  display: flex;
+  flex-direction: row; 
+  text-align: center;
+  margin: auto;
+
+  .new-task-button{
+    width: 30px; 
+    height: 30px; 
+    padding: 6px 0px; 
+    border-radius: 15px; 
+    font-size: 8px; 
+    text-align: center; 
+  }
+}
+
+
+
+.mini-calendar-tray{
+  height: 65%;
+  margin-right: 20px;
+  .mini-calendar{
+    height: calc(100% - 30px);
+    display: flex;
+    .cal-column{
+      height:100%;
+      width: 33.33%;
+      border: 1px black;
+      border-style: solid;
+      padding: 5px;
+      .line{
+        background-color: black;
+        height: 2px;
+      }
+    }
+  }
+  
+}
+
+.classes-tray{
+  height: 35%;
+  .classes{
+    height: calc(100% - 40px);
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .class-item{
+      margin: 10px;
+    }
+  }
+}
+
+.needs-validation{
+  margin-left: 20px;
+}

@@ -1,6 +1,7 @@
 <template>
   <div class="chunkyrow">
 
+
     <div class="calendar-month">
       <div class="calendar-month-header">
         <CalendarDateIndicator
@@ -25,12 +26,17 @@
           :is-today="day.date === today"
         />
       </ol>
+
     </div>
 
     <div class="daycalendar">
       <h1> This is just for keepsakes, and seeing what happens </h1>
     </div>
     
+  </div>
+  <div class="daycalendar">
+      <h1> This is where the list of upcoming tasks will go.</h1>
+  </div>
   </div>
 </template>
 

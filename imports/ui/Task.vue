@@ -1,42 +1,32 @@
 <template>
-  <li v-bind:class="taskClassName">
 
-    <button type="button" class="btn btn-outline-warning" @click="deleteThisTask">{{yello}}</button>
- 
-    <input
-      type="checkbox"
-      readOnly
-      v-bind:checked="!!this.task.checked"
-      @click="toggleChecked"
-    />
-     
-    <span class="text">{{ this.task.text }}</span>
+  <li class="task">
+    <div class="text">
+       <div class="index">
+        {{ index + ")"}}
+      </div> 
+      <div class="title">
+        {{ this.task.taskName }}
+      </div>
+    </div>   
+    <div class="time-est">
+      {{ this.task.timeEst }}
+    </div>
+    
   </li>
+  
 </template>
  
 <script>
 import { Tasks } from "../api/tasks.js";
  
 export default {
-  props: ["task", "yello"],
+  props: ["task", "index"],
   data() { 
     return {};
   },
-  computed: {
-    taskClassName: function() {
-      return this.task.checked ? "checked" : "";
-    }
-  },
   methods: {
-    toggleChecked() {
-      // Set the checked property to the opposite of its current value
-      Tasks.update(this.task._id, {
-        $set: { checked: !this.task.checked }
-      });
-    },
-    deleteThisTask() {
-      Tasks.remove(this.task._id);
-    }
+   
   }
 };
 </script>
