@@ -3,31 +3,56 @@
     <div class="column">
       <div class="priorities">
         <div class="title">
-          Priotities
+          Priorities
         </div>
         <ul class="task-list" >
           <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
       <div class="new-task">
-        <Button class="new-task-button">
+        <button class="new-task-button" @click="$router.push('/newTask')">
           +
-        </Button>
+        </button>
         <div>
           Add a task
         </div>
       </div>
     </div>
     <div class="column">
-      <div class="mini-calendar">
-        Mini Calendar
+      <div class="mini-calendar-tray">
+        Calendar
+        <div class="mini-calendar">
+          <div class="cal-column">
+            Monday
+            <div class="line" />
+            <div class="cal-item"> Test Task 1 </div> <!-- TODO: Make these responsive-->
+            <div class="cal-item"> Test Task 2 </div>
+          </div>
+          <div class="cal-column">
+            Tuesday
+            <div class="line" />
+          </div>
+          <div class="cal-column">
+            Wednesday
+            <div class="line" />
+            <div class="cal-item"> Test Task 3 </div>
+          </div>
+        </div>
+        
       </div>
-      <div class="classes">
+      <div class="classes-tray">
         Class List
+        <div class="classes">
+          <div class="class-item"> Subject 1 </div>
+          <div class="class-item"> Subject 2 </div>
+          <div class="class-item"> Subject 3 </div>
+          <div class="class-item"> Subject 4 </div>
+          <div class="class-item"> Subject 5 </div>
+          <div class="class-item"> Subject 6 </div>
+        </div>
       </div>
     </div>
   </div>
-  
 
 </template>
 
@@ -50,14 +75,14 @@ export default {
       ],*/
     };
   },
-  created: function () {
-  },
   created() {
-    Meteor.call('task.returnNextX', (error, result) => { 
-        this.prioritiesTaskList = result;
+    Meteor.call('task.returnNextX', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+        if (this.prioritiesTaskList!=result){
+          this.prioritiesTaskList = result;
+        }        
       });
   },
-  methods: { //pre loading
+  methods: { 
         
   }
 }

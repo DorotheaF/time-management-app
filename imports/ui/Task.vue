@@ -1,28 +1,18 @@
 <template>
-  <li v-bind:class="taskClassName">
-
-    <button type="button" class="btn btn-outline-warning" @click="deleteThisTask">{{yello}}</button>
- 
-    <input
-      type="checkbox"
-      readOnly
-      v-bind:checked="!!this.task.checked"
-      @click="toggleChecked"
-    />
-     
-    <span class="text">{{ this.task.text }}</span>
-  <!-- <li class="task">
-    <div class="number">
-      {{ index }}
-    </div> 
-    <div>
-      <span class="text">{{ this.task.taskName }}</span>
-    </div>
-    <div>
+  <li class="task">
+    <div class="text">
+       <div class="index">
+        {{ index + ")"}}
+      </div> 
+      <div class="title">
+        {{ this.task.taskName }}
+      </div>
+    </div>   
+    <div class="time-est">
       {{ this.task.timeEst }}
     </div>
     
-  </li> -->
+  
   </li>
 </template>
  

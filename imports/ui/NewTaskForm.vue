@@ -1,100 +1,63 @@
 <template>
-  <div className="container">
-    <header>
-      <h1>To do List ({{ incompleteCount }}) </h1>
-       <label className="hide-completed">
-        <input
-          type="checkbox"
-          readOnly
-          checked="hideCompleted"
-          v-model="hideCompleted"
-          @click="toggleHideCompleted"
-        />
-        Hide Completed Tasks
-      </label>
-
-      <!-- <blaze-template template="loginButtons" tag="span"></blaze-template> -->
-
-      <form className="newTask" @submit.prevent="handleSubmit">
-        <input
-          type="text"
-          placeholder="What Class?"
-          v-model="newTask"
-        />
-       
-        <input
-          type="text"
-          placeholder="Assignment Title"
-          v-model="newTask1"
-        />
-        
-       
-        <input
-          type="text"
-          placeholder="Due Date (mm/dd/yyyy)"
-          v-model="newTask2"
-        />
-       
-       
-        <input
-          type="text"
-          placeholder="Time estimated to finish (hh:mm)"
-          v-model="newTask3"
-        />
-          <button type="submit" class="btn btn-primary">Submit Task</button>
-       
-      </form>
+  <form @submit.prevent="mySubmit">
+    <div class="form-row" >
+      <div class="col-md-4 mb-3">
+        <label >What subject?</label>
+        <input type="text" class="form-control" id="subject" placeholder="ex: MATH" v-model="subject">        
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>What do you want to call the task?</label>
+        <input type="text" class="form-control" id="title" placeholder="ex: Math Homework 3" v-model="title">
+      </div>
       
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">When is it due?</label>
+        <input type="text" class="form-control" id="dueDate" placeholder="MM/DD/YYYY" v-model="dueDate">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationCustom04">Estimated Time to finish</label>
+        <input type="text" class="form-control" id="timeEst" placeholder="hh:mm" v-model="timeEst">
+      </div>
       
-    </header>
-    <ul>
-      <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
-    </ul>
-  </div>
+    </div>
+    
+    <div>
+      <Button class="submit-button" type="submit"> Submit </Button> 
+    </div>
+
+  </form>
 </template>
- 
+
 <script>
-import { Meteor } from "meteor/meteor";
-import Vue from "vue";
-import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
  
 export default {
-  components: {
-    Task
-  },
-  data() {
+  data() { 
     return {
-      newTask: "",
-      hideCompleted: false,
-      temp: 23
+      title: "",
+      timeEst: "",
+      dueDate: "",
+      subject: "",
     };
   },
   methods: {
-    handleSubmit(event) {
-      Tasks.insert({
-        text: this.newTask,
-        createdAt: new Date(), // current time
-      });
-
-      // Clear form
-      this.newTask = "";
-    },
-    toggleHideCompleted() {
-      this.hideCompleted = !this.hideCompleted;
-    }
-  },
-  meteor: {
-    tasks() {
-      let filteredTasks = Tasks.find({}, { sort: { createdAt: -1 } }).fetch();
-      if (this.hideCompleted) {
-        filteredTasks = filteredTasks.filter(task => !task.checked);
+    mySubmit: function(){
+      if(title._value!=""){
+        console.log("Submitting " + title._value);
+        array = [title._value, timeEst._value, dueDate._value, subject._value];
+        Meteor.call('task.addTask', array);
+        this.title = "";
+        this.timeEst = "";
+        this.dueDate = "";
+        this.subject = "";
+        this.$router.push('/');
       }
-      return filteredTasks;
-    },
-    incompleteCount() {
-      return Tasks.find({ checked: { $ne: true } }).count();
-    }
+      else{
+        console.log("Please add a title for the task")
+      }         
+   },    
   }
 };
 </script>
