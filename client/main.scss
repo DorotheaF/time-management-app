@@ -180,6 +180,62 @@ a{
   }
 }
 
-.needs-validation{
-  margin-left: 20px;
+
+.column-a{
+  width: 65%;
+  height: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
 }
+
+.column-b{
+  width: 35%;
+  height: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.break-time-tray{
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;    
+  
+  }
+
+.base-timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+/* Removes SVG styling that would hide the time label */
+  &__circle {
+    fill: none;
+    stroke: none;
+  }
+/* The SVG path that displays the timer's progress */
+  &__path-elapsed {
+    stroke-width: 7px;
+    stroke:grey;
+  }
+  &__label {
+    position: absolute;    
+    
+    /* Size should match the parent container */    
+    width: 300px;
+    height: 300px;
+    /* Keep the label aligned to the top */    
+    top: 0;
+    /* Create a flexible box that centers content vertically and horizontally */    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 48px;
+  }
+}
+
+
