@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 import MainPage from '../imports/ui/MainPage.vue';
 import CurrentSession from '../imports/ui/CurrentSession.vue';
-import Calendar from '../imports/ui/Calendar.vue';
+import Calendar from '../imports/ui/calendarstuff/Calendar.vue';
 import Diagnostics from '../imports/ui/Diagnostics.vue';
 import NewTask from '../imports/ui/NewTaskForm.vue';
 

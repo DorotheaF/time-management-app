@@ -1,6 +1,7 @@
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 //adding some colors
 //variables
+
 //colors:
 $sidebar1: #DBE1F1;
 $sidebar2: #D6EAF8;
@@ -95,6 +96,7 @@ a{
   flex-direction: column; 
   scroll-behavior: auto; //do we want to scrol?
   padding-left: 10px;
+
 
   .task{
     width: 100%;

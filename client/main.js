@@ -14,5 +14,18 @@ Meteor.startup(() => {
     router,
     render: (h) => h(App),
   }).$mount('#app');
-  
 });
+ 
+//Meteor.startup(() => {
+  
+//new Vue({
+    //route = whatever is in the top bar (or whatever) "www.app.com/xxx"
+    //route =  Calender (or Diagnostic or whatever)
+    //el: '#app',
+    //if route = ""
+    //...MainPage,
+    //if route = calendar 
+    // ...Calendar
+  
+ // });
+//});

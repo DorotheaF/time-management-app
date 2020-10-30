@@ -31,27 +31,70 @@
         </div>           
     </div>
 </template>
- 
+
 <script>
 import { Meteor } from "meteor/meteor";
 import Vue from "vue";
 import Task from "./Task.vue";
 import { Tasks } from "../api/tasks.js";
- 
 export default {
+  name: 'app',
   components: {
     //Task
   },
+  
+ 
   data() {
     return {
       newTask: "",
       hideCompleted: false,
-      temp: 23
+      temp: 23,
+
     };
-  },
+  }, //Checkbox for hiding added components starts empty when you first open the website, and the newTask is also set to blank
   methods: {
     
   }
 };
 </script>
 
+
+<style>
+html {
+   height: 100%;
+   overflow:hidden;
+ }
+
+ body {
+   border: 0; margin: 0; padding: 0;
+   font-family: 'Lato';
+   height: 100%;
+   background: rgb(101,31,87);
+   background: linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,1) 48%, rgba(249,248,113,1) 100%);
+ }
+
+ .logo {
+   align-self: center;
+   color: #fff;
+   font-weight: bold;
+   font-family: 'Lato'
+ }
+
+ .main-nav {
+   display: flex;
+   justify-content: space-between;
+   padding: 0.5rem 0.8rem;
+ }
+
+ ul.sidebar-panel-nav {
+   list-style-type: none;
+ }
+
+ ul.sidebar-panel-nav > li > a {
+   color: #fff;
+   text-decoration: none;
+   font-size: 1.5rem;
+   display: block;
+   padding-bottom: 0.5em;
+ }
+</style>
