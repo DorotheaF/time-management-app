@@ -43,9 +43,9 @@
       <div class="classes-tray">
         Class List
         <div class="classes">
-          <div class="class-item"> Subject 1 </div>
-          <div class="class-item"> Subject 2 </div>
-          <div class="class-item"> Subject 3 </div>
+          <div class="class-item"> Math </div>
+          <div class="class-item"> English </div>
+          <div class="class-item"> Chemistry </div>
           <div class="class-item"> Subject 4 </div>
           <div class="class-item"> Subject 5 </div>
           <div class="class-item"> Subject 6 </div>
