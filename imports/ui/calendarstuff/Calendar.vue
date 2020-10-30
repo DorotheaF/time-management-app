@@ -28,7 +28,7 @@
     </div>
 
     <div class="daycalendar">
-      <h1> This is just for keepsakes, and seeing what happens </h1>
+      <h1> This may include a summary of a specific selected day in future updates. </h1>
     </div>
     <div class="daycalendar">
       <h1> This is where the list of upcoming tasks will go.</h1>
