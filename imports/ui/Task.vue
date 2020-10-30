@@ -11,6 +11,18 @@
     />
      
     <span class="text">{{ this.task.text }}</span>
+  <!-- <li class="task">
+    <div class="number">
+      {{ index }}
+    </div> 
+    <div>
+      <span class="text">{{ this.task.taskName }}</span>
+    </div>
+    <div>
+      {{ this.task.timeEst }}
+    </div>
+    
+  </li> -->
   </li>
 </template>
  
@@ -18,25 +30,12 @@
 import { Tasks } from "../api/tasks.js";
  
 export default {
-  props: ["task", "yello"],
+  props: ["task", "index"],
   data() { 
     return {};
   },
-  computed: {
-    taskClassName: function() {
-      return this.task.checked ? "checked" : "";
-    }
-  },
   methods: {
-    toggleChecked() {
-      // Set the checked property to the opposite of its current value
-      Tasks.update(this.task._id, {
-        $set: { checked: !this.task.checked }
-      });
-    },
-    deleteThisTask() {
-      Tasks.remove(this.task._id);
-    }
+   
   }
 };
 </script>

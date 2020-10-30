@@ -4,11 +4,17 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Tasks } from "../imports/api/tasks.js";
 
-const name1 = "Test task 66";
+const name1 = "Test task 1";
 const est1 = "00:30";
-const due1 = "10/10/2020";
-const subj1 = "MCEN 3025";
+const due1 = "11/1/2020";
+const subj1 = "GEEN 2400";
 const array =[name1, est1, due1, subj1];
+
+const name2 = "Test task 2";
+const est2 = "00:45";
+const due2 = "11/05/2020";
+const subj2 = "MCEN 3025";
+const array2 =[name2, est2, due2, subj2];
 
 Meteor.startup(() => {
   // if (!Accounts.findUserByUsername(SEED_USERNAME)) {
@@ -25,6 +31,9 @@ Meteor.startup(() => {
     //   dueDate: due1, 
     //   subject: subj1 //the class/category it is for
     // });
+  }
+  if (!Tasks.findOne({taskName: name2})) {
+    Meteor.call('task.addTask', array2);
   }
   
 });
