@@ -42,6 +42,15 @@
                     cy="50"
                     r="46.5"
                 />
+                <path
+                :stroke-dasharray="circleDasharray"
+                class="base-timer__path-remaining"
+                d="
+                  M 50, 50
+                  m -45, 0
+                  a 45, 45, 0 1, 0 90, 0
+                  a 45, 45 0 1, 0 -90, 0
+                  "></path>
                 </g>
             </svg>
             <span class="base-timer__label">
@@ -105,6 +114,17 @@ export default {
         // The output in MM:SS format
         return `${minutes}:${seconds}`
         }
+    },
+
+      computed: {
+      // Update the dasharray value as time passes, starting with 283
+      circleDasharray() {
+        return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+      },
+      timeFraction() {
+        // Divides time left by the defined time limit.      
+        return this.timeLeft / this.timeLimit;
+      }
     },
     methods: { 
             
