@@ -119,7 +119,7 @@ export default {
       computed: {
       // Update the dasharray value as time passes, starting with 283
       circleDasharray() {
-        return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+        return `${(this.timeFraction * 283).toFixed(0)}`;
       },
       timeFraction() {
         // Divides time left by the defined time limit.      
