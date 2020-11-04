@@ -5,9 +5,12 @@
        <div class="index">
         {{ index + ")"}}
       </div> 
+      <div class="title">
+        {{ this.task.taskName }}
+      </div>
     </div>   
     <div class="time-est">
-      XX:XX /{{ this.task.timeEst }}
+      {{ this.task.timeSpent }}/{{ this.task.timeEst }}
     </div>
     
   </li>

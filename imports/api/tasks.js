@@ -7,7 +7,8 @@ export const Tasks = new Mongo.Collection('tasks');
     taskName: { type: String }, 
     timeEst: { type: Int }, //estimated time to complete
     dueDate: { type: Date }, 
-    subject: { type: String } //the class/category it is for
+    subject: { type: String }, //the class/category it is for
+    timeSpent: { type: Int } // the cumulative time spent on the task so far, to udpate with progress in current session
 }
 
 */ 
@@ -27,7 +28,9 @@ Meteor.methods({
             taskName: array[0],
             timeEst: array[1], //estimated time to complete
             dueDate: array[2], 
-            subject: array[3] //the class/category it is for
+            subject: array[3], //the class/category it is for
+            timeSpent: 0,
+            completed: 0 //0 = not completed, date = completed date, -1 = not completed, but late
         });
     },
     'task.removeTask'(taskName) { //should use _id?
