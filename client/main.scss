@@ -8,8 +8,13 @@
 
 
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
+//adding some colors
+//variables
 
-body {
+$menu: 300px;
+$width: calc(100% - $menu); //the width of any content trays minus the menu
+
+  body {
     padding: 10px;
     font-family: sans-serif;
     background-color: rgb(157, 157, 179);
@@ -134,4 +139,74 @@ body {
     .new-task input {
       padding-bottom: 5px;
     }
+  }
+
+  .content{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-item{
+    width: 300px;
+  }
+
+  .todo{
+    width: 1500px; //change to dynamic viewport minus 300px
+  }
+
+  .content{
+    width: $width;//viewport - 300
+    height: 100%;
+  }
+
+  .column{
+    width: 50%;
+    padding-left: 25px;
+    padding-top: 10px;
+
+  }
+ 
+  .priorities{
+    height: 75%;
+  }
+
+  .title{
+    //format titles
+  }
+
+  .task-list{
+    display: flex;
+    flex-direction: column; 
+    scroll-behavior: auto; //do we want to scrol?
+  }
+
+  .task{
+    display: flex;
+    flex-direction: row; 
+    text-align: left;
+    margin: auto;
+  }
+
+  .new-task{
+    display: flex;
+    flex-direction: row; 
+    text-align: center;
+    margin: auto;
+  }
+
+  .new-task-button{
+    width: 30px; 
+    height: 30px; 
+    padding: 6px 0px; 
+    border-radius: 15px; 
+    font-size: 8px; 
+    text-align: center; 
+  }
+
+  .mini-calendar{
+    height: 65%;
+  }
+
+  .classes{
+    height: 35%;
   }
