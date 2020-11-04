@@ -37,9 +37,8 @@
             <div class="line" />
             <div class="cal-item"> Test Task 3 </div>
           </div>
-        </div>
-        
-      </div>
+        </div>        
+      </div>      
       <div class="classes-tray">
         Class List
         <div class="classes">
@@ -76,7 +75,7 @@ export default {
     };
   },
   created() {
-    Meteor.call('task.returnNextX', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+    Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
         if (this.prioritiesTaskList!=result){
           this.prioritiesTaskList = result;
         }        

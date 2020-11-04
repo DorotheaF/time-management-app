@@ -8,6 +8,9 @@
       <div class="title">
         {{ this.task.taskName }}
       </div>
+      <div class="due-date">
+        {{ this.task.dueDate }}
+      </div>
     </div>   
     <div class="time-est">
       {{ this.task.timeEst }}

@@ -61,10 +61,6 @@ import { Meteor } from 'meteor/meteor'
 
 export default {
     props: {
-        timeLeft: {
-        type: Number,
-        required: true
-        }
     },
     components: {
         Task,
@@ -82,7 +78,7 @@ export default {
         };
     },
     created() {
-        Meteor.call('task.returnNextX', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+        Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
             this.prioritiesTaskList = result;
             }        

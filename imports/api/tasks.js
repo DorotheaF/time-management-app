@@ -38,23 +38,19 @@ Meteor.methods({
     //update title
     //fetch tasks 
     //mark completed
-    'task.returnNextX'(){
+    'task.returnByDate'(){
         //get current date
         //make call searching for tasks organized by not completed and duedate - currentdate (> 0) ascending limited to 5
         //Tasks.find( { $query: {}, $orderby: { date : 1 } } )
-        cursor = Tasks.find();
-        array = [];
 
-        
-        cursor.map(element => { //TODO: make this work for 2 items in database
-            console.log(element.taskName);
-            array.push(element);
-        });
-        
+        // Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
+        //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
+        //array = [];
+        array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
         
         console.log("The array is \n" + array);
         i = 0;
-        for (i; i<3; i++){
+        for (i; i<array.length; i++){
             console.log(array[i].taskName);
         }        
         return array;
