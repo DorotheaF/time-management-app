@@ -14,6 +14,7 @@
        />
       
         <path
+          :stroke-dasharray="circleDasharray"
           class="base-timer__path-remaining"
           d="
             M 50, 50
@@ -33,6 +34,10 @@
 export default {
   props: {
     timeLeft: {
+      type: Number,
+      required: true
+    },
+    timeLimit: {
       type: Number,
       required: true
     }
@@ -56,13 +61,14 @@ export default {
           // The output in MM:SS format
           return `${minutes}:${seconds}`
         },
-    // Update the dasharray value as time passes, starting with 283 (the circumference)
-    circleDasharray() {
-      return `${(this.timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
-    },
-    timeFraction() {
+
+      timeFraction() {
       // Divides time left by the defined time limit.      
       return this.timeLeft / this.timeLimit;
+    },
+    // Update the dasharray value as time passes, starting with 283 (the circumference)
+    circleDasharray() {
+      return `${(this.timeFraction * 283).toFixed(0)} 283`;
     },
   },
 }
