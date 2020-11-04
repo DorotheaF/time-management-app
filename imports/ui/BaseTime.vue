@@ -64,7 +64,8 @@ export default {
 
       timeFraction() {
       // Divides time left by the defined time limit.      
-      return this.timeLeft / this.timeLimit;
+      const rawTimeFraction= this.timeLeft / this.timeLimit;
+      return rawTimeFraction -(1 / this.timeLimit) * (1-rawTimeFraction);
     },
     // Update the dasharray value as time passes, starting with 283 (the circumference)
     circleDasharray() {
