@@ -1,4 +1,5 @@
 <template>
+
   <li class="task">
     <div class="text">
        <div class="index">
@@ -9,7 +10,7 @@
       </div>
     </div>   
     <div class="time-est">
-      {{ this.task.timeEst }}
+      XX:XX /{{ this.task.timeEst }}
     </div>
     
   </li>

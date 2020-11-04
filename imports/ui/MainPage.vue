@@ -1,102 +1,91 @@
 <template>
-    <div class="mainpage">
-        <div class="content">   
-
-            <div class="todo">            
-                <header>
-                <h1>Todo List ({{ incompleteCount }}) </h1>
-                <label class="hide-completed">
-                    <input
-                    type="checkbox"
-                    readOnly
-                    checked="hideCompleted"
-                    v-model="hideCompleted"
-                    @click="toggleHideCompleted"
-                    />
-                    Hide Completed Tasks
-                </label>
-
-                <!-- <blaze-template template="loginButtons" tag="span"></blaze-template> -->
-
-                <form class="new-task" @submit.prevent="handleSubmit">
-                    <input
-                    type="text"
-                    placeholder="Type to add new tasks"
-                    v-model="newTask"
-                    />
-                </form>
-                
-                </header>
-                <ul>
-                <Task v-for="(task, index) in tasks" v-bind:key="task._id" v-bind:task="task" v-bind:yello="index+1"/>
-                </ul>
-
-                <div class="chunkyrow">
-                  
-                  <div class="prioritylist" style="flex-grow:1">
-                    
-                    <h1> Priority List Never gonna give you up
-                          Never gonna let you down
-                          Never gonna run around and desert you
-                          Never gonna make you cry
-                          Never gonna say goodbye
-                          Never gonna tell a lie and hurt you</h1>
-                  
-                  </div>
-
-                  <div class="daycalendar" style="flex-grow:2">
-                    
-                    <h1>Next Three Days 
-                        Hey now, you're an all star
-                        Get your game on, go play
-                        Hey now, you're a rock star
-                        Get the show on, get paid
-                        All that glitters is gold
-                        Only shooting stars break the mold
-                    </h1>
-                    
-                  </div>
-                  
-              </div>
-              <div class="chunkyrow">
-                <div class=daycalendar>
-                  <li class="nav-item">
-                    <button type="button" class="btn btn-dark btn-lg" >
-                      <router-link to="/enternewtask">Enter New Task</router-link>
-                      </button>
-                    
-                  </li>
-                  <li class="nav-item">
-                    <button type="button" class="btn btn-secondary btn-lg">
-                    <router-link to="/enternewproject">Enter New Project</router-link>
-                    </button>
-                  </li>
-                  <li class = "nav-item">
-                    <button type="button" class="btn btn-secondary btn-lg">
-                      <router-link to="/currentsession">Start New Session</router-link>
-                     </button>
-                  </li>
-                </div>
-
-                <div class=daycalendar>
-                  <h1>All Classes</h1>
-                  <h1>Math</h1>
-                  <h1>English</h1>
-                  <h1>Chemistry. The bane of one's existence</h1>
-                </div>
-              </div>
-                   
-            </div>      
-
-        </div>           
+  <div class="content">
+    <div class="column">
+      <div class="priorities">
+        <div class="title">
+          Priorities
+        </div>
+        <ul class="task-list" >
+          <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+        </ul>
+      </div>
+      <div class="new-task">
+        <button class="new-task-button" @click="$router.push('/newTask')">
+          +
+        </button>
+        <div>
+          Add a task
+        </div>
+      </div>
     </div>
-  
+    <div class="column">
+      <div class="mini-calendar-tray">
+        Calendar
+        <div class="mini-calendar">
+          <div class="cal-column">
+            Monday
+            <div class="line" />
+            <div class="cal-item"> Test Task 1 </div> <!-- TODO: Make these responsive-->
+            <div class="cal-item"> Test Task 2 </div>
+          </div>
+          <div class="cal-column">
+            Tuesday
+            <div class="line" />
+          </div>
+          <div class="cal-column">
+            Wednesday
+            <div class="line" />
+            <div class="cal-item"> Test Task 3 </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="classes-tray">
+        Class List
+        <div class="classes">
+          <div class="class-item"> Math </div>
+          <div class="class-item"> English </div>
+          <div class="class-item"> Chemistry </div>
+          <div class="class-item"> Subject 4 </div>
+          <div class="class-item"> Subject 5 </div>
+          <div class="class-item"> Subject 6 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
- 
+
 <script>
+import Task from "./Task.vue"
+import { Meteor } from 'meteor/meteor'
+
 export default {
+  components: {
+    Task
+  },
+  data() {
+    return {
+      proximalTaskList: [],
+      prioritiesTaskList: []
+      /*prioritiesTaskList: [
+        {_id: "ibbaBWC8F7GMvfumM", taskName: "task 3", timeEst: "00:30", dueDate: "10/10/2020", subject: "MCEN 3025"},
+        {_id: "GBdSNWhudZ2m77tvv", taskName: "task 5", timeEst: "00:30", dueDate: "11/1/2020", subject: "GEEN 2400"},
+        {_id: "3KtSh62ParYNKxpgz", taskName: "task 7", timeEst: "00:45", dueDate: "11/05/2020", subject: "MCEN 3025"}
+      ],*/
+    };
+  },
+  created() {
+    Meteor.call('task.returnNextX', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+        if (this.prioritiesTaskList!=result){
+          this.prioritiesTaskList = result;
+        }        
+      });
+  },
+  methods: { 
+        
+  }
 }
 </script>
 
-<style>
-</style>
+
