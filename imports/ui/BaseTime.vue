@@ -15,6 +15,7 @@
       
         <path
           :stroke-dasharray="circleDasharray"
+          :class="remainingPathColor"
           class="base-timer__path-remaining"
           d="
             M 50, 50
@@ -40,7 +41,15 @@ export default {
     timeLimit: {
       type: Number,
       required: true
-    }
+    },
+      alertThreshold: {
+      type: Number,
+      default: 7
+     },
+    warningThreshold: {
+      type: Number,
+      default: 15
+    },
   },
 
   computed: {
@@ -71,6 +80,32 @@ export default {
     circleDasharray() {
       return `${(this.timeFraction * 283).toFixed(0)} 283`;
     },
+
+    colorCodes() {
+      return {
+        info: {
+          color: "green"
+        },
+        warning: {
+          color: "orange",
+          threshold: this.warningThreshold
+        },
+        alert: {
+          color: "red",
+          threshold: this.alertThreshold
+        }
+      }
+    },
+    remainingPathColor() {
+       const { alert, warning, info } = this.colorCodes;
+       if (this.timeLeft <= alert.threshold) {
+         return alert.color;
+       } else if (this.timeLeft <= warning.threshold) {
+         return warning.color;
+       } else {
+         return info.color;
+       }
+    }
   },
 }
 </script>

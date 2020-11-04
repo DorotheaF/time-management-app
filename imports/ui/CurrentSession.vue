@@ -63,7 +63,7 @@ export default {
             {_id: "GBdSNWhudZ2m77tvv", taskName: "task 5", timeEst: "00:30", dueDate: "11/1/2020", subject: "GEEN 2400"},
             {_id: "3KtSh62ParYNKxpgz", taskName: "task 7", timeEst: "00:45", dueDate: "11/05/2020", subject: "MCEN 3025"}
         ],*/
-        timeLimit: 60,
+        timeLimit: 45,
         timePassed:0,
         timerInterval: null,
         };
