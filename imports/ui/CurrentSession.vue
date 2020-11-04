@@ -29,34 +29,9 @@
     <div class="column-b">      
       <div class="break-time-tray">
         Time until next break <!-- TODO: Finish this!! https://medium.com/js-dojo/how-to-create-an-animated-countdown-timer-with-vue-89738903823f -->
-        <div class="base-timer">
-            <svg
-                class="base-timer__svg"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg">
-            
-                <g class="base-timer__circle">
-                <circle
-                    class="base-timer__path-elapsed"
-                    cx="50"
-                    cy="50"
-                    r="46.5"
-                />
-                <path
-                :stroke-dasharray="circleDasharray"
-                class="base-timer__path-remaining"
-                d="
-                  M 50, 50
-                  m -45, 0
-                  a 45, 45, 0 1, 0 90, 0
-                  a 45, 45 0 1, 0 -90, 0
-                  "></path>
-                </g>
-            </svg>
-            <span class="base-timer__label">
-                {{ formattedTimeLeft }}
-            </span>
-        </div>
+        <BaseTimer
+          :time-left="timeLeft"
+        />
       </div>
     </div>
   </div>
@@ -67,27 +42,29 @@
 import Task from "./Task.vue"
 import CurrentTask from "./CurrentTask.vue"
 import { Meteor } from 'meteor/meteor'
+import BaseTimer from "./BaseTime.vue";
 
 export default {
-    props: {
-        timeLeft: {
-        type: Number,
-        required: true
-        }
-    },
+    
+    
     components: {
         Task,
-        CurrentTask
+        CurrentTask,
+        BaseTimer
     },
     data() {
+        
         return {
         proximalTaskList: [],
-        prioritiesTaskList: []
+        prioritiesTaskList: [],
         /*prioritiesTaskList: [
             {_id: "ibbaBWC8F7GMvfumM", taskName: "task 3", timeEst: "00:30", dueDate: "10/10/2020", subject: "MCEN 3025"},
             {_id: "GBdSNWhudZ2m77tvv", taskName: "task 5", timeEst: "00:30", dueDate: "11/1/2020", subject: "GEEN 2400"},
             {_id: "3KtSh62ParYNKxpgz", taskName: "task 7", timeEst: "00:45", dueDate: "11/05/2020", subject: "MCEN 3025"}
         ],*/
+        timeLimit: 5,
+        timePassed:0,
+        timerInterval: null,
         };
     },
     created() {
@@ -98,36 +75,22 @@ export default {
         });
     },
     computed: {
-        formattedTimeLeft() {
-        const timeLeft = this.timeLeft
-        // The largest round integer less than or equal 
-            //to the result of time divided being by 60.
-        const minutes = Math.floor(timeLeft / 60)
-        // Seconds are the remainder of the time divided
-            //by 60 (modulus operator)
-        let seconds = timeLeft % 60
-        // If the value of seconds is less than 10,
-            //then display seconds with a leading zero
-        if (seconds < 10) {
-            seconds = `0${seconds}`
-        }
-        // The output in MM:SS format
-        return `${minutes}:${seconds}`
-        }
+
+        timeLeft(){
+          return this.timeLimit - this.timePassed
+        },
+
     },
 
-      computed: {
-      // Update the dasharray value as time passes, starting with 283
-      circleDasharray() {
-        return `${(this.timeFraction * 283).toFixed(0)}`;
-      },
-      timeFraction() {
-        // Divides time left by the defined time limit.      
-        return this.timeLeft / this.timeLimit;
+    methods: { 
+      startTimer() {
+        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);    
       }
     },
-    methods: { 
-            
-    }
+
+    mounted() {
+      this.startTimer();
+    },
+
 }
 </script>
