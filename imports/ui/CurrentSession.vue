@@ -46,8 +46,8 @@ import { Meteor } from 'meteor/meteor'
 import BaseTimer from "./BaseTime.vue";
 
 export default {
-    
-    
+    props: {
+    },
     components: {
         Task,
         CurrentTask,
@@ -69,7 +69,7 @@ export default {
         };
     },
     created() {
-        Meteor.call('task.returnNextX', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+        Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
             this.prioritiesTaskList = result;
             }        

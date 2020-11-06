@@ -4,17 +4,23 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Tasks } from "../imports/api/tasks.js";
 
-const name1 = "Test task 1";
+const name1 = "Test task 4";
 const est1 = "00:30";
-const due1 = "11/1/2020";
+const due1 = "2030-01-13";
 const subj1 = "GEEN 2400";
 const array =[name1, est1, due1, subj1];
 
-const name2 = "Test task 2";
+const name2 = "Test task 5";
 const est2 = "00:45";
-const due2 = "11/05/2020";
+const due2 = "2021-01-01";
 const subj2 = "MCEN 3025";
 const array2 =[name2, est2, due2, subj2];
+
+const name3 = "Test task 6";
+const est3 = "00:15";
+const due3 = "2020-7-07";
+const subj3 = "ENES 3100";
+const array3 =[name3, est3, due3, subj3];
 
 Meteor.startup(() => {
   // if (!Accounts.findUserByUsername(SEED_USERNAME)) {
@@ -34,6 +40,9 @@ Meteor.startup(() => {
   }
   if (!Tasks.findOne({taskName: name2})) {
     Meteor.call('task.addTask', array2);
+  }
+  if (!Tasks.findOne({taskName: name3})) {
+    Meteor.call('task.addTask', array3);
   }
   
 });
