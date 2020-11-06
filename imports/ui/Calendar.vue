@@ -25,9 +25,9 @@
       />
     </ol>
   </div>
-  <div class="daycalendar">
-      <h1> This is where the list of upcoming tasks will go.</h1>
-  </div>
+  <h1>
+  <UpcomingTasks/>
+  </h1>
   </div>
 </template>
 
@@ -39,7 +39,7 @@ import CalendarMonthDayItem from "./calendarstuff/CalendarMonthDayItem";
 import CalendarDateIndicator from "./calendarstuff/CalendarDateIndicator";
 import CalendarDateSelector from "./calendarstuff/CalendarDateSelector";
 import CalendarWeekdays from "./calendarstuff/CalendarWeekdays";
-
+import UpcomingTasks from "./UpcomingTasks";
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
@@ -50,7 +50,8 @@ export default {
     CalendarMonthDayItem,
     CalendarDateIndicator,
     CalendarDateSelector,
-    CalendarWeekdays
+    CalendarWeekdays,
+    UpcomingTasks
   },
 
   data() {
