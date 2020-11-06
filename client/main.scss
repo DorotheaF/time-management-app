@@ -194,6 +194,15 @@ a{
   padding-top: 10px;
 }
 
+.column-c{
+  width:520px;
+  height:100%;
+  padding-left: 8px;
+  padding-top: 10px;
+}
+
+
+
 .break-time-tray{
   height: 350px;
   border: 1px solid black;
@@ -236,8 +245,15 @@ a{
     font-size: 48px;
   }
 }
-.ScrollStyle{
-  height: 150px;
+.ScrollStyle1{
+  height: 1000px;
   overflow-y: scroll;
 }
+.ScrollStyle2{
+  height: 200px;
+  overflow-y:scroll;
+}
 
+li::marker{
+  content:none;
+}

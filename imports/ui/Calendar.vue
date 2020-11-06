@@ -183,14 +183,16 @@ export default {
 .days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  
 }
 
-.day-of-week > * {
+.day-of-week {
   text-align: right;
   padding-right: 5px;
+  
 }
 
-.days-grid {
+.days-grid{
   height: 100%;
   position: relative;
   grid-column-gap: var(--grid-gap);

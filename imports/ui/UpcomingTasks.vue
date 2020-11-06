@@ -1,7 +1,7 @@
 <template>
-  <div class="ScrollStyle">
+  <div class="ScrollStyle2">
   <div class="content">
-    <div class="column-a">
+    <div class="column-c">
       <div class="priorities">
         <div class="title">
           Current Tasks
@@ -10,6 +10,8 @@
           <CurrentTask v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
+    </div>
+    <div class="column-c">
       <div class="priorities">
         <ul class="title">
           Finished Tasks
@@ -18,6 +20,8 @@
           <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
+      </div>
+      <div class="column-c">
       <div class="new-task">
         <button class="new-task-button" @click="$router.push('/newTask')">
           +
@@ -25,10 +29,11 @@
         <div>
           Add a task
         </div>
-      </div>
+        </div>
     </div>
     </div>
-</div>
+    </div>
+
 </template>
 
 <script>
