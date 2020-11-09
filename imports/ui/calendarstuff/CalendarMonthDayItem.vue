@@ -8,6 +8,11 @@
   >
     <span>{{ label }}</span>
     <ol>Task(s) go here!</ol>
+    <!-- Replace with <ol insert other fun components herer similar to the li above
+    class="task"
+    :class="{
+      'task today': isToday
+      'task later': !day.isToday" -->
   </li>
 </template>
 

@@ -1,5 +1,4 @@
 <template>
-
   <li class="task">
     <div class="text">
        <div class="index">

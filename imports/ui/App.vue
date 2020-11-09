@@ -1,9 +1,11 @@
 <template>
+    
     <div class="app">
         <div class="header">
             Time Management App 
             <!-- add text for what component is currently rendered -->
         </div>
+        <div class="ScrollStyle1">
         <div class="full-page">   
 
             <div class="menu">
@@ -29,6 +31,7 @@
             </div>      
 
         </div>           
+    </div>
     </div>
 </template>
 
