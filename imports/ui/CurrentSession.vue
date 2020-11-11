@@ -6,7 +6,7 @@
           Current Tasks
         </div>
         <ul class="task-list" >
-          <CurrentTask v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          <CurrentTask v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" v-bind:color="color"/>
         </ul>
       </div>
       <div class="priorities">
@@ -56,6 +56,7 @@ export default {
     data() {
         
         return {
+        color: "Whatever I want? Waffles",
         proximalTaskList: [],
         prioritiesTaskList: [],
         /*prioritiesTaskList: [

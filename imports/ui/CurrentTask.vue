@@ -10,7 +10,11 @@
       </div>
     </div>   
     <div class="time-est">
-      {{ this.task.timeSpent }}/{{ this.task.timeEst }}
+    <div>
+      {{this.color}}
+      </div>
+      <TaskTimer2
+      />
     </div>
     
   </li>
@@ -19,11 +23,27 @@
  
 <script>
 import { Tasks } from "../api/tasks.js";
+//import TaskTimer from "./TaskTimer.vue";
+import TaskTimer2 from "./TaskTimer2.vue";
+
  
 export default {
-  props: ["task", "index"],
+  props: ["task", "index","color"],
+  components: {
+    TaskTimer2,
+  },
   data() { 
-    return {};
+    return {
+      timeLimit: 20,
+      timePassed: 0
+    
+    };
+  },
+
+  computed: {
+    timeLeft() {
+      return this.timeLimit - this.timePassed
+    }
   },
   methods: {
    
