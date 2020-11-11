@@ -16,11 +16,12 @@
 
     <CalendarWeekdays/>
 
-    <ol class="days-grid">
-      <CalendarMonthDayItem
+    <ol class="days-grid" v-if="dayTasks!=undefined" >
+      <CalendarMonthDayItem               
         v-for="day in days"
         :key="day.date"
         :day="day"
+        :tasks="dayTasks"
         :is-today="day.date === today"
       />
     </ol>
@@ -56,8 +57,15 @@ export default {
 
   data() {
     return {
-      selectedDate: dayjs()
+      selectedDate: dayjs(),
+      dayTasks: ["1","2","3"],
     };
+  },
+
+  created() {
+    Meteor.call('task.returnByDate', (error, result) => {
+       this.dayTasks = result;
+     })
   },
 
   computed: {
@@ -158,45 +166,14 @@ export default {
 
     selectDate(newSelectedDate) {
       this.selectedDate = newSelectedDate;
+    },
+    getTasks(date){
+     Meteor.call('task.returnByDate', (error, result) => {
+       console.log("the day's tasks are " + result);
+       this.dayTasks = result;
+       //return result;
+     })
     }
-  }
+  }    
 };
 </script>
-
-<style scoped>
-.calendar-month {
-  position: relative;
-  text-align: center;
-  background-color: white;
-  
-}
-
-.day-of-week {
-  color: var(--grey-800);
-  font-size: 18px;
-  background-color: #fff;
-  padding-bottom: 0px;
-  padding-top: 10px;
-}
-
-.day-of-week,
-.days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  
-}
-
-.day-of-week {
-  text-align: right;
-  padding-right: 5px;
-  
-}
-
-.days-grid{
-  height: 100%;
-  position: relative;
-  grid-column-gap: var(--grid-gap);
-  grid-row-gap: var(--grid-gap);
-  border-top: solid 1px black;
-}
-</style>
