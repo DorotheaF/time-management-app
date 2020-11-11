@@ -7,7 +7,7 @@
     }"
   >
     <span>{{ label }}</span>
-    <ol>Task(s) go here!</ol>
+    <CalTask2 v-for="task in tasks" v-bind:key="task._id" v-bind:task="task" :day="day"/>
     <!-- Replace with <ol insert other fun components herer similar to the li above
     class="task"
     :class="{
@@ -18,73 +18,33 @@
 
 <script>
 import dayjs from "dayjs";
+import CalTask2 from "../CalTask2.vue"
 
 export default {
+  components: {
+    CalTask2
+  },
   name: "CalendarMonthDayItem",
 
-  props: {
-    day: {
-      type: Object,
-      required: true
-    },
-
-    isCurrentMonth: {
-      type: Boolean,
-      default: false
-    },
-
-    isToday: {
-      type: Boolean,
-      default: false
+  props: ["tasks", "day", "isCurrentMonth","isToday"],   
+  
+  data(){
+    return{
+      nowtasks: [],
     }
   },
 
   computed: {
     label() {
-      return dayjs(this.day.date).format("D");
+      return dayjs(this.day.date).format("D");      
+    }
+  },
+  methods: {
+    Psych(){
+      console.log("today: " + day);
+      return true;
     }
   }
 };
 </script>
 
-<style scoped>
-.calendar-day {
-  position: relative;
-  min-height: 100px;
-  font-size: 16px;
-  background-color: #fff;
-  color: var(--grey-800);
-  padding: 4px;
-  border-right:1.25px solid black;
-  border-left: 1.25px solid black;
-  border-top: 1.25px solid black;
-  border-bottom:1.25px solid black;  
-  
-}
-
-.calendar-day > span {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  position: left;
- 
-  width: var(--day-label-size);
-  height: var(--day-label-size);
-  }
-
-.calendar-day--not-current {
-  background-color: grey;
-  color: var(--grey-300);
-}
-
-.calendar-day--today {
-  padding-top: 4px;
-  background-color: lightgreen;
-  
-}
-
-.calendar-day--today > span {
-    border-radius: 9999px;
-  background-color: var(--grey-800);
-}
-</style>
