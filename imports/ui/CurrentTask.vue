@@ -10,11 +10,17 @@
       </div>
     </div>   
     <div class="time-est">
-    <div>
-      {{this.color}}
-      </div>
       <TaskTimer2
       />
+        
+
+       <button @click="$emit('welcome')">
+          Start Session
+        </button>
+      <div>
+        
+        {{this.task.timeEst}}
+    </div>
     </div>
     
   </li>
@@ -28,7 +34,11 @@ import TaskTimer2 from "./TaskTimer2.vue";
 
  
 export default {
-  props: ["task", "index","color"],
+  props: ["task", "index"],
+      vita: {
+        type: Boolean,
+        required: true,
+      },
   components: {
     TaskTimer2,
   },
@@ -46,7 +56,11 @@ export default {
     }
   },
   methods: {
-   
+   /*mounted() {
+      if (start==true)  {
+      this.startTimer();
+      }
+    },*/
   }
 };
 </script>

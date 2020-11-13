@@ -10,7 +10,12 @@
 
 <script>
 export default {
-
+props: {
+  /*vita: {
+    type: Boolean,
+    required: true,
+  }*/
+},
 
 data: function() {
     return {
