@@ -24,6 +24,7 @@ export default {
     show() {      
       var due = this.task.dueDate;
       var day = new Date(this.day.date);
+      console.log(due + "" + day);
       if (due.getTime() == day.getTime()){
           this.render = true;
       }
