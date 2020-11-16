@@ -81,6 +81,7 @@ export default {
     computed: {
 
         timeLeft(){
+          
           if (this.timeLimit>=this.timePassed && this.vita==true){
           return this.timeLimit - this.timePassed
           }
@@ -104,14 +105,24 @@ export default {
         this.startTimer();
       }
       else {
-      
+        this.stopTimer();
       }
     },
   
      
       //refers to the cirlce timer
       startTimer() {
-        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);    
+        /*if (vita==true){
+        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+        }
+        else {
+          this.timerInterval = clearInterval(() => (this.timePassed), 1000);
+        } */
+        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+      },
+
+      stopTimer(){
+        this.timerInterval = clearInterval(() => (this.timePassed), 1000);
       },
  
     },
