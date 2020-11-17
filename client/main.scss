@@ -224,6 +224,7 @@ a{
     fill: none;
     stroke: none;
   }
+  
 /* The SVG path that displays the timer's progress */
   &__path-elapsed {
     stroke-width: 7px;
@@ -299,6 +300,87 @@ li::marker{
   padding-bottom: 0px;
   padding-top: 10px;
 }
+
+
+/* TIMEBAR COMPONENT */
+.c-timebar {
+  width: 100%;
+  height: 75%;
+  position: relative;
+}
+
+.c-timebar__background {
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FFF8C4;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.c-timebar__remaining {
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FFE626;
+  z-index: 2;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes timebar_progress_x {
+  from {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  to {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+
+@keyframes timebar_progress_x {
+  from {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  to {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+@-webkit-keyframes timebar_progress_y {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+@keyframes timebar_progress_y {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+
+
+
 
 .day-of-week,
 .days-grid {
@@ -388,3 +470,4 @@ li::marker{
     border-radius: 9999px;
   background-color: var(--grey-800);
 }
+

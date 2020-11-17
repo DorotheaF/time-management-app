@@ -76,14 +76,14 @@ export default {
   created() {
     Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
         if (this.prioritiesTaskList!=result){
-          this.prioritiesTaskList = result;
+          this.prioritiesTaskList = result.filter(item => item.completed == 0);
         }     
         const dayjs = require('dayjs');
         var i = 0;
         var time = new Date()
         var date = time.getFullYear() + "-" + (time.getMonth()+1) + "-" + time.getDate()
         var today = dayjs(date);
-        var currentTask = result[0];
+        var currentTask = this.prioritiesTaskList[0];
         var day2 = today.add(2, 'days');
         var day1 = today.add(1, 'days');
        
@@ -101,7 +101,7 @@ export default {
             this.proximalTaskList1.push(currentTask)
           }
           i = i+1;
-          currentTask = result[i];
+          currentTask = this.prioritiesTaskList[i];
           var mydueDate = new Date(currentTask.dueDate);
           var temp = dayjs(mydueDate)
           mydueDate = temp.add(1, 'days').subtract(17, 'hours').toDate();          
@@ -113,7 +113,7 @@ export default {
             this.proximalTaskList2.push(currentTask)
           }
           i = i+1;
-          currentTask = result[i];
+          currentTask = this.prioritiesTaskList[i];
           var mydueDate = new Date(currentTask.dueDate);
           var temp = dayjs(mydueDate)
           mydueDate = temp.add(1, 'days').subtract(17, 'hours').toDate();          
@@ -124,7 +124,7 @@ export default {
             this.proximalTaskList3.push(currentTask)
           }
           i = i+1;
-          currentTask = result[i];
+          currentTask = this.prioritiesTaskList[i];
           var mydueDate = new Date(currentTask.dueDate);
           var temp = dayjs(mydueDate)
           mydueDate = temp.add(1, 'days').subtract(17, 'hours').toDate();

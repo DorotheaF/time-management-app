@@ -17,7 +17,7 @@
           Finished Tasks
         </ul>
         <ul class="task-list" >
-          <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          <CurrentTask v-for="(task, index) in FinTasks" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
       </div>
@@ -46,12 +46,14 @@ export default {
     },
     components: {
         Task,
-        CurrentTask
+        CurrentTask,
+        
     },
     data() {
         return {
         proximalTaskList: [],
-        prioritiesTaskList: []
+        prioritiesTaskList: [],
+        FinTasks: []
         /*prioritiesTaskList: [
             {_id: "ibbaBWC8F7GMvfumM", taskName: "task 3", timeEst: "00:30", dueDate: "10/10/2020", subject: "MCEN 3025"},
             {_id: "GBdSNWhudZ2m77tvv", taskName: "task 5", timeEst: "00:30", dueDate: "11/1/2020", subject: "GEEN 2400"},
@@ -62,7 +64,8 @@ export default {
     created() {
         Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
-            this.prioritiesTaskList = result;
+            this.prioritiesTaskList = result.filter(item => item.completed == 0);
+            this.FinTasks = result.filter(item => item.completed == 1)
             }        
         });
     },

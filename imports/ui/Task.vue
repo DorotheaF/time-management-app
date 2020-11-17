@@ -8,10 +8,10 @@
         {{ this.task.taskName }}
       </div>
       <div class="due-label-late" v-if="calcDate() <= 0"> <!-- TODO: Style these -->
-        {{ " " }} Days until due: {{ calcDate() }}
+        {{ " , " }} Days until due: {{ calcDate() }}
       </div>
       <div class="due-label" v-else>
-        {{ " :) " }} Days until due: {{ calcDate() }}
+        {{ " , " }} Days until due: {{ calcDate() }}
       </div>
     </div>   
     <div class="time-est">
