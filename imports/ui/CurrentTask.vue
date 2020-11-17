@@ -29,7 +29,6 @@
  
 <script>
 import { Tasks } from "../api/tasks.js";
-//import TaskTimer from "./TaskTimer.vue";
 import TaskTimer2 from "./TaskTimer2.vue";
 
  
@@ -56,11 +55,7 @@ export default {
     }
   },
   methods: {
-   /*mounted() {
-      if (start==true)  {
-      this.startTimer();
-      }
-    },*/
+   
   }
 };
 </script>

@@ -58,7 +58,7 @@ export default {
     data() {
         
         return {
-        vita: false,
+        vita:false,
         proximalTaskList: [],
         prioritiesTaskList: [],
         /*prioritiesTaskList: [
@@ -91,7 +91,7 @@ export default {
         },
 
     },
-//el: '#emit-example-simple',
+
   methods: {
     sayHi() {
       if (this.vita==false){
@@ -112,17 +112,14 @@ export default {
      
       //refers to the cirlce timer
       startTimer() {
-        /*if (vita==true){
-        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
-        }
-        else {
-          this.timerInterval = clearInterval(() => (this.timePassed), 1000);
-        } */
-        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+        //if (vita==true){
+      timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
+        
+        
       },
 
       stopTimer(){
-        this.timerInterval = clearInterval(() => (this.timePassed), 1000);
+        window.clearInterval(timerInterval);
       },
  
     },
