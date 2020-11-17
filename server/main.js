@@ -6,19 +6,23 @@ import { Tasks } from "../imports/api/tasks.js";
 
 const name1 = "Test task 4";
 const est1 = "00:30";
-const due1 = "2030-01-13";
+
+const due1 = "2020-11-09";
 const subj1 = "GEEN 2400";
 const array =[name1, est1, due1, subj1];
 
-const name2 = "Test task 5";
-const est2 = "00:45";
-const due2 = "2021-01-01";
+const name2 = "Test task 16"; 
+const est2 = "00:45"; 
+const due2 = "2020-12-12";
+
 const subj2 = "MCEN 3025";
 const array2 =[name2, est2, due2, subj2];
 
 const name3 = "Test task 6";
-const est3 = "00:15";
-const due3 = "2020-7-07";
+
+const est3 = "00:15"; 
+const due3 = "2020-12-11";
+
 const subj3 = "ENES 3100";
 const array3 =[name3, est3, due3, subj3];
 

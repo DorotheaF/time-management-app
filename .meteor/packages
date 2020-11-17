@@ -28,3 +28,4 @@ accounts-password
 accounts-ui
 vuejs:blaze-integration
 twbs:bootstrap
+momentjs:moment

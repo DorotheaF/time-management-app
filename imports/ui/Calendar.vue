@@ -16,18 +16,19 @@
 
     <CalendarWeekdays/>
 
-    <ol class="days-grid">
-      <CalendarMonthDayItem
+    <ol class="days-grid" v-if="dayTasks!=undefined" >
+      <CalendarMonthDayItem               
         v-for="day in days"
         :key="day.date"
         :day="day"
+        :tasks="dayTasks"
         :is-today="day.date === today"
       />
     </ol>
   </div>
-  <div class="daycalendar">
-      <h1> This is where the list of upcoming tasks will go.</h1>
-  </div>
+  <h1>
+  <UpcomingTasks/>
+  </h1>
   </div>
 </template>
 
@@ -39,7 +40,7 @@ import CalendarMonthDayItem from "./calendarstuff/CalendarMonthDayItem";
 import CalendarDateIndicator from "./calendarstuff/CalendarDateIndicator";
 import CalendarDateSelector from "./calendarstuff/CalendarDateSelector";
 import CalendarWeekdays from "./calendarstuff/CalendarWeekdays";
-
+import UpcomingTasks from "./UpcomingTasks";
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
@@ -50,13 +51,21 @@ export default {
     CalendarMonthDayItem,
     CalendarDateIndicator,
     CalendarDateSelector,
-    CalendarWeekdays
+    CalendarWeekdays,
+    UpcomingTasks
   },
 
   data() {
     return {
-      selectedDate: dayjs()
+      selectedDate: dayjs(),
+      dayTasks: ["1","2","3"],
     };
+  },
+
+  created() {
+    Meteor.call('task.returnByDate', (error, result) => {
+       this.dayTasks = result;
+     })
   },
 
   computed: {
@@ -157,43 +166,14 @@ export default {
 
     selectDate(newSelectedDate) {
       this.selectedDate = newSelectedDate;
+    },
+    getTasks(date){
+     Meteor.call('task.returnByDate', (error, result) => {
+       console.log("the day's tasks are " + result);
+       this.dayTasks = result;
+       //return result;
+     })
     }
-  }
+  }    
 };
 </script>
-
-<style scoped>
-.calendar-month {
-  position: relative;
-  text-align: center;
-  background-color: white;
-  
-}
-
-.day-of-week {
-  color: var(--grey-800);
-  font-size: 18px;
-  background-color: #fff;
-  padding-bottom: 0px;
-  padding-top: 10px;
-}
-
-.day-of-week,
-.days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.day-of-week > * {
-  text-align: right;
-  padding-right: 5px;
-}
-
-.days-grid {
-  height: 100%;
-  position: relative;
-  grid-column-gap: var(--grid-gap);
-  grid-row-gap: var(--grid-gap);
-  border-top: solid 1px black;
-}
-</style>

@@ -10,6 +10,7 @@
       </div>
     </div>   
     <div class="time-est">
+
       <TaskTimer2
       />
         
@@ -21,6 +22,7 @@
         
         {{this.task.timeEst}}
     </div>
+
     </div>
     
   </li>
