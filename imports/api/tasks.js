@@ -28,12 +28,12 @@ Meteor.methods({
         Tasks.insert({ //automatically adds unique _id
             taskName: array[0],
             timeEst: array[1], //estimated time to complete
-            dueDate: new Date(array[2]), 
+            dueDate: array[2], 
             subject: array[3], //the class/category it is for
             timeSpent: 0,
             completed: 0 //0 = not completed, date = completed date, -1 = not completed, but late
         });
-    },
+    }, 
     'task.removeTask'(taskName) { //should use _id?
         const task = Tasks.findOne(taskName); //get the id?    
         Tasks.remove(task);

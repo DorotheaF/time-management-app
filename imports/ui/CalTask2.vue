@@ -1,7 +1,7 @@
 <template>
-    <div class="text" >      
-        {{ show() }}  
-      <div class="title" v-if="render==true">
+    <div class="text" v-if="render==true">      
+         
+      <div class="title" >
         {{ this.task.taskName }}      
         </div>  
     </div>  
@@ -16,16 +16,20 @@ export default {
   props: ["task", "day"],
   data() { 
     return {
-        render: false,
+        render: this.show(),
         day2: ""
     };
   },
   methods: {
-    show() {      
-      var due = this.task.dueDate;
-      var day = new Date(this.day.date);
-      if (due.getTime() == day.getTime()){
-          this.render = true;
+    show() {  
+      var due = new Date(this.task.dueDate);
+      due.setHours(17,00,00);
+      var today = new Date(this.day.date); 
+      console.log(today + " " + due);     
+      if (due.getTime() == today.getTime()){
+        console.log("Added!");
+        this.render = true;
+        return true;
       }
     }
   }
