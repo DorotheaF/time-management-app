@@ -10,7 +10,19 @@
       </div>
     </div>   
     <div class="time-est">
-      {{ this.task.timeSpent }}/{{ this.task.timeEst }}
+
+      <TaskTimer2
+      />
+        
+
+       <button @click="$emit('welcome')">
+          Start Session
+        </button>
+      <div>
+        
+        {{this.task.timeEst}}
+    </div>
+
     </div>
     
   </li>
@@ -19,11 +31,30 @@
  
 <script>
 import { Tasks } from "../api/tasks.js";
+import TaskTimer2 from "./TaskTimer2.vue";
+
  
 export default {
   props: ["task", "index"],
+      vita: {
+        type: Boolean,
+        required: true,
+      },
+  components: {
+    TaskTimer2,
+  },
   data() { 
-    return {};
+    return {
+      timeLimit: 20,
+      timePassed: 0
+    
+    };
+  },
+
+  computed: {
+    timeLeft() {
+      return this.timeLimit - this.timePassed
+    }
   },
   methods: {
    

@@ -9,7 +9,9 @@ export const Tasks = new Mongo.Collection('tasks');
     dueDate: { type: Date }, 
     subject: { type: String }, //the class/category it is for
     timeSpent: { type: Int } // the cumulative time spent on the task so far, to udpate with progress in current session
+
     completed: 
+
 }
 
 */ 
@@ -51,6 +53,7 @@ Meteor.methods({
         //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
         //array = [];
         array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
+
         
         console.log("The array is \n" + array);
         i = 0;
@@ -68,6 +71,7 @@ Meteor.methods({
         //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
         //array = [];
         array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
+
         
         console.log("The array is \n" + array);
         i = 0;

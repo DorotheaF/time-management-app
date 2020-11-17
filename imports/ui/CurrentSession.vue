@@ -6,8 +6,10 @@
           Current Tasks
         </div>
         <ul class="task-list" >
-          <CurrentTask v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          
+          <CurrentTask v-on:welcome="sayHi" v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" />
         </ul>
+       
       </div>
       <div class="priorities">
         <div class="title">
@@ -48,8 +50,8 @@ import { Meteor } from 'meteor/meteor'
 import BaseTimer from "./BaseTime.vue";
 
 export default {
-    
-    
+    props: {
+    },
     components: {
         Task,
         CurrentTask,
@@ -58,6 +60,7 @@ export default {
     data() {
         
         return {
+        vita:false,
         proximalTaskList: [],
         prioritiesTaskList: [],
         /*prioritiesTaskList: [
@@ -81,7 +84,8 @@ export default {
     computed: {
 
         timeLeft(){
-          if (this.timeLimit>=this.timePassed){
+          
+          if (this.timeLimit>=this.timePassed && this.vita==true){
           return this.timeLimit - this.timePassed
           }
           else {
@@ -91,16 +95,40 @@ export default {
 
     },
 
-    methods: { 
+  methods: {
+    sayHi() {
+      if (this.vita==false){
+        this.vita=true
+        }
+      else {
+        this.vita=false
+        }
+
+      if (this.vita==true) {
+        this.startTimer();
+      }
+      else {
+        this.stopTimer();
+      }
+    },
+  
+     
+      //refers to the cirlce timer
       startTimer() {
-        this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);    
+        //if (vita==true){
+      timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
+        
+        
+      },
+
+      stopTimer(){
+        window.clearInterval(timerInterval);
       },
  
     },
 
-    mounted() {
-      this.startTimer();
-    },
+   
+
 
 }
 </script>
