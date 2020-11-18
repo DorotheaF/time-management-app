@@ -10,11 +10,18 @@
       </div>
     </div>   
     <div class="time-est">
-      <TaskTimer2 />
-      
+
+
+      <TaskTimer2
+      v-if="icecream==2"
+      />
+        
+
+       <!--button @click="$emit('welcome', this.timerDuration)"-->      
         
 
        <button @click="updateStatus()">
+
           Start Session
         </button>
       <div>
@@ -35,18 +42,17 @@ import TaskTimer2 from "./TaskTimer2.vue";
  
 export default {
   props: ["task", "index"],
-      vita: {
-        type: Boolean,
-        required: true,
-      },
+
   components: {
     TaskTimer2,
   },
   data() { 
+
     return {
       timeLimit: 20,
-      timePassed: 0
-    
+      timePassed: 0,
+      icecream: this.task.completed,
+      
     };
   },
 
@@ -56,6 +62,7 @@ export default {
     }
   },
   methods: {
+
    updateStatus(){
      console.log("Updating");
      Meteor.call('task.updateWorkingStatus', this.task._id, 2, (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
@@ -64,6 +71,7 @@ export default {
             }       
         });
    }
+
   }
 };
 </script>

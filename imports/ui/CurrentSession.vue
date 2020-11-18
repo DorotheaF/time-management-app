@@ -7,7 +7,8 @@
         </div>
         <ul class="task-list" >
           
-          <CurrentTask v-on:welcome="sayHi" v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" />
+          <CurrentTask v-on:welcome="sayHi"  v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" 
+          />
         </ul>
        
       </div>
@@ -110,12 +111,12 @@ export default {
       else {
         this.stopTimer();
       }
+
     },
   
      
       //refers to the cirlce timer
       startTimer() {
-        //if (vita==true){
       timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
         
         
