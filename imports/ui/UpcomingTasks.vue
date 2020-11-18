@@ -7,7 +7,7 @@
           Current Tasks
         </div>
         <ul class="task-list" >
-          <CurrentTask v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          <Task2 v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
     </div>
@@ -17,7 +17,7 @@
           Finished Tasks
         </ul>
         <ul class="task-list" >
-          <CurrentTask v-for="(task, index) in FinTasks" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          <Task2 v-for="(task, index) in FinTasks" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
       </div>
       </div>
@@ -38,6 +38,7 @@
 
 <script>
 import Task from "./Task.vue"
+import Task2 from "./Task2.vue"
 import CurrentTask from "./CurrentTask.vue"
 import { Meteor } from 'meteor/meteor'
 
@@ -46,6 +47,7 @@ export default {
     },
     components: {
         Task,
+        Task2,
         CurrentTask,
         
     },
