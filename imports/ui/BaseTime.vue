@@ -50,7 +50,10 @@ export default {
       type: Number,
       default: 15
     },
-
+    /*vita: {
+      type: Boolean,
+      required: true,
+    }*/
   },
 
   computed: {
