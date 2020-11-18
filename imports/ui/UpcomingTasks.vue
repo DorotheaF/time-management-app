@@ -66,7 +66,7 @@ export default {
     created() {
         Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
-            this.prioritiesTaskList = result.filter(item => item.completed == 0);
+            this.prioritiesTaskList = result.filter(item => item.completed != 1);
             this.FinTasks = result.filter(item => item.completed == 1)
             }        
         });

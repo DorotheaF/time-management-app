@@ -4,19 +4,19 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Tasks } from "../imports/api/tasks.js";
 
-const name1 = "Test task 1"; 
+const name1 = "Test task 1";
 const est1 = "00:30";
-const due1 = "2020-11-09";
+const due1 = "2020-11-18";
 const subj1 = "GEEN 2400";
 const array =[name1, est1, due1, subj1];
-
+ 
 const name2 = "Test task 2"; 
 const est2 = "00:45"; 
-const due2 = "2020-12-12";
+const due2 = "2020-11-20";
 const subj2 = "MCEN 3025";
 const array2 =[name2, est2, due2, subj2];
 
-const name3 = "Test task 3";
+const name3 = "Test task 3"; 
 const est3 = "00:15"; 
 const due3 = "2020-12-11";
 const subj3 = "ENES 3100";

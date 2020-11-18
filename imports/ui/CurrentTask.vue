@@ -12,8 +12,8 @@
     <div class="time-est">
 
 
-      <TaskTimer2
-      v-if="icecream==2"
+      <TaskTimer2 
+      v-if="this.task.current==1"
       />
         
 
@@ -21,7 +21,6 @@
         
 
        <button @click="updateStatus()">
-
           Start Session
         </button>
       <div>
@@ -51,7 +50,6 @@ export default {
     return {
       timeLimit: 20,
       timePassed: 0,
-      icecream: this.task.completed,
       
     };
   },
@@ -63,13 +61,24 @@ export default {
   },
   methods: {
 
-   updateStatus(){
+   updateStatus(){ //change to show bar if this.task.timeSpent!=0
      console.log("Updating");
-     Meteor.call('task.updateWorkingStatus', this.task._id, 2, (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+     if (this.task.current==0){
+       Meteor.call('task.updateWorkingStatus', this.task._id, 1, (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+            this.task.current = 1
             if(result == true){
-              console.log("Updated to 2");
+              console.log("Updated to 1: "  +  this.task.current + " = " + this.icecream);
             }       
         });
+     }else{
+       Meteor.call('task.updateWorkingStatus', this.task._id, 0, (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+            this.task.current = 0 //task isn't dynamic based on database
+            if(result == true){
+              console.log("Updated to 0: " + this.icecream);
+            }       
+        });
+     }
+    this.$emit('welcome')
    }
 
   }
