@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Tasks } from "../imports/api/tasks.js";
 
-const name1 = "Test task 1";
+const name1 = "Test task 1"; 
 const est1 = "00:30";
 const due1 = "2020-11-09";
 const subj1 = "GEEN 2400";
