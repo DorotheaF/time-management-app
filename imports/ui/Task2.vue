@@ -10,13 +10,6 @@
       </div>
     </div>   
     <div class="time-est">
-      <TaskTimer2 />
-      
-        
-
-       <button @click="updateStatus()">
-          Start Session
-        </button>
       <div>
         
         {{this.task.timeEst}}
@@ -56,14 +49,7 @@ export default {
     }
   },
   methods: {
-   updateStatus(){
-     console.log("Updating");
-     Meteor.call('task.updateWorkingStatus', this.task._id, 2, (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
-            if(result == true){
-              console.log("Updated to 2");
-            }       
-        });
-   }
+   
   }
 };
 </script>
