@@ -16,9 +16,11 @@
         <div class="title">
           Finished Tasks
         </div>
+        <div class="ScrollStyle">
         <ul class="task-list" >
           <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
+        </div>
       </div>
       <div class="new-task">
         <button class="new-task-button" @click="$router.push('/newTask')">

@@ -9,6 +9,9 @@ export const Tasks = new Mongo.Collection('tasks');
     dueDate: { type: Date }, 
     subject: { type: String }, //the class/category it is for
     timeSpent: { type: Int } // the cumulative time spent on the task so far, to udpate with progress in current session
+
+    completed: 
+
 }
 
 */ 
@@ -32,7 +35,7 @@ Meteor.methods({
             timeSpent: 0,
             completed: 0 //0 = not completed, date = completed date, -1 = not completed, but late
         });
-    },
+    }, 
     'task.removeTask'(taskName) { //should use _id?
         const task = Tasks.findOne(taskName); //get the id?    
         Tasks.remove(task);
@@ -50,6 +53,25 @@ Meteor.methods({
         //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
         //array = [];
         array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
+
+        
+        console.log("The array is \n" + array);
+        i = 0;
+        for (i; i<array.length; i++){
+            console.log(array[i].taskName);
+        }        
+        return array;
+    },
+    'task.returnByDate'(date){
+        //get current date
+        //make call searching for tasks organized by not completed and duedate - currentdate (> 0) ascending limited to 5
+        //Tasks.find( { $query: {}, $orderby: { date : 1 } } )
+
+        // Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
+        //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
+        //array = [];
+        array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
+
         
         console.log("The array is \n" + array);
         i = 0;

@@ -10,6 +10,7 @@
       </div>
     </div>   
     <div class="time-est">
+
       <TaskTimer2
       v-if="icecream==2"
       />
@@ -22,6 +23,7 @@
         
         {{this.task.timeEst}}
     </div>
+
     </div>
     
   </li>
