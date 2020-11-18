@@ -2,7 +2,6 @@
        <div v-if=isActive class="c-timer">
        <div class="c-timebar">
          <div class="c-timebar__background"></div> <div class="c-timebar__remaining" v-bind:style="transitionBarWithStyle"></div>
-         <h1> Did this work?</h1>
        </div>
      </div>
      
@@ -65,16 +64,16 @@ data: function() {
     
   }, 
   
-  /*created(){
+  created(){
     var self = this;
     //var triggerTimer= new Vue();
-    triggerTimer.$on('start-timer', function(time){
+    triggertimer.$on('start-timer', function(time){
       self.start(time);
     });
     triggerTimer.$on('start-cancel', function(time){
       self.cancel();
     })
-  }*/
+  }
 };
 
 

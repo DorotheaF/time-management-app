@@ -107,6 +107,8 @@ export default {
 
       if (this.vita==true) {
         this.startTimer();
+          triggerTimer.$emit('start-timer', this.timerDuration);
+          triggerTimer.$emit('start-cancel');
       }
       else {
         this.stopTimer();
@@ -115,7 +117,7 @@ export default {
     },
   
      
-      //refers to the cirlce timer
+      //refers to the circle timer
       startTimer() {
       timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
         

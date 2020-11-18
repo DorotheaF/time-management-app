@@ -15,7 +15,7 @@
       v-if="icecream==2"
       />
         
-       <button @click="$emit('welcome', this.timerDuration)">
+       <button @click="$emit('welcome', 'start-timer', this.timerDuration)">
           Start Session
         </button>
       <div>
