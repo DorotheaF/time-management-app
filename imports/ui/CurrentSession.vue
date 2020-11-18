@@ -114,6 +114,7 @@ export default {
       else {
         this.stopTimer();
       }
+
       Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
             this.prioritiesTaskList = result.filter(item => item.completed != 1);
@@ -125,6 +126,7 @@ export default {
      
       //refers to the cirlce timer
       startTimer() {
+        //if (vita==true){
       timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
         
         

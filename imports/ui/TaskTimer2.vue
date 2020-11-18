@@ -11,6 +11,10 @@
 <script>
 export default {
 props: {
+  /*vita: {
+    type: Boolean,
+    required: true,
+  }*/
 },
 
 data: function() {
@@ -24,9 +28,7 @@ data: function() {
   
   // all methods of timer component
   methods: {
-   
- 
-   start: function(time){
+    start: function(time){
       var self = this;
       
       if (self.isActive){

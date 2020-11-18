@@ -41,12 +41,14 @@ import TaskTimer2 from "./TaskTimer2.vue";
  
 export default {
   props: ["task", "index"],
-
+      vita: {
+        type: Boolean,
+        required: true,
+      },
   components: {
     TaskTimer2,
   },
   data() { 
-
     return {
       timeLimit: 20,
       timePassed: 0,
@@ -80,7 +82,6 @@ export default {
      }
     this.$emit('welcome')
    }
-
   }
 };
 </script>
