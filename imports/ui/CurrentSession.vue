@@ -18,7 +18,7 @@
         </div>
         <div class="ScrollStyle">
         <ul class="task-list" >
-          <Task v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
+          <Task v-for="(task, index) in proximalTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1"/>
         </ul>
         </div>
       </div>
@@ -77,7 +77,8 @@ export default {
     created() {
         Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
-            this.prioritiesTaskList = result;
+            this.prioritiesTaskList = result.filter(item => item.completed == 0);
+            this.proximalTaskList = result.filter(item => item.completed == 1)
             }        
         });
     },
