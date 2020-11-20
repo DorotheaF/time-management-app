@@ -7,7 +7,7 @@
         </div>
         <ul class="task-list" >
           
-          <CurrentTask v-on:welcome="sayHi"  v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" 
+          <CurrentTask v-on:welcome="sayHi()"  v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" 
           />
         </ul>
        
@@ -61,7 +61,7 @@ export default {
     data() {
         
         return {
-        vita:false,
+        vita: false,
         proximalTaskList: [],
         prioritiesTaskList: [],
         /*prioritiesTaskList: [
@@ -69,7 +69,7 @@ export default {
             {_id: "GBdSNWhudZ2m77tvv", taskName: "task 5", timeEst: "00:30", dueDate: "11/1/2020", subject: "GEEN 2400"},
             {_id: "3KtSh62ParYNKxpgz", taskName: "task 7", timeEst: "00:45", dueDate: "11/05/2020", subject: "MCEN 3025"}
         ],*/
-        timeLimit: 45,
+        timeLimit: 60,
         timePassed:0,
         timerInterval: null,
         };
@@ -77,9 +77,18 @@ export default {
     created() {
         Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
             if (this.prioritiesTaskList!=result){
-            this.prioritiesTaskList = result.filter(item => item.completed == 0);
+            this.prioritiesTaskList = result.filter(item => item.completed != 1);
             this.proximalTaskList = result.filter(item => item.completed == 1)
             }        
+        });
+        Meteor.call('task.fetchWorkingStatus', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+            if (result == true){
+              this.vita = true
+              this.startTimer();
+            }        
+            else{
+              this.vita = false;
+            }
         });
     },
     computed: {
@@ -97,14 +106,8 @@ export default {
     },
 
   methods: {
-    sayHi() {
-      if (this.vita==false){
-        this.vita=true
-        }
-      else {
-        this.vita=false
-        }
-
+    sayHi() {     
+      this.vita=!this.vita        
       if (this.vita==true) {
         this.startTimer();
           triggerTimer.$emit('start-timer', this.timerDuration);
@@ -114,11 +117,18 @@ export default {
         this.stopTimer();
       }
 
+      Meteor.call('task.returnByDate', (error, result) => { //TODO: add watcher for database, check if component needs to rerender on page reload
+            if (this.prioritiesTaskList!=result){
+            this.prioritiesTaskList = result.filter(item => item.completed != 1);
+            this.proximalTaskList = result.filter(item => item.completed == 1)
+            }        
+        });
     },
   
      
       //refers to the circle timer
       startTimer() {
+        //if (vita==true){
       timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
         
         

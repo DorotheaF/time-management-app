@@ -9,7 +9,6 @@ export const Tasks = new Mongo.Collection('tasks');
     dueDate: { type: Date }, 
     subject: { type: String }, //the class/category it is for
     timeSpent: { type: Int } // the cumulative time spent on the task so far, to udpate with progress in current session
-
     completed: 
 
 }
@@ -33,7 +32,8 @@ Meteor.methods({
             dueDate: array[2], 
             subject: array[3], //the class/category it is for
             timeSpent: 0,
-            completed: 0 //0 = not completed, date = completed date, -1 = not completed, but late
+            completed: 0, //0 = not completed, date = completed date, -1 = not completed, but late, 2 current task
+            current: 0
         });
     }, 
     'task.removeTask'(taskName) { //should use _id?
@@ -62,23 +62,38 @@ Meteor.methods({
         }        
         return array;
     },
-    'task.returnByDate'(date){
+    'task.updateWorkingStatus'(taskId, status){
         //get current date
         //make call searching for tasks organized by not completed and duedate - currentdate (> 0) ascending limited to 5
         //Tasks.find( { $query: {}, $orderby: { date : 1 } } )
-
         // Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
         //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
         //array = [];
-        array = Tasks.find({}, {sort: { dueDate: 1 }}).fetch();
-
-        
-        console.log("The array is \n" + array);
-        i = 0;
-        for (i; i<array.length; i++){
-            console.log(array[i].taskName);
+        if (status == 1){
+            console.log("removing old current")
+            Tasks.update({current: 1}, {$set: { current: 0 }});
         }        
-        return array;
+        console.log("updating new current to " + status)
+        Tasks.update({_id: taskId}, {$set: { current: status }});
+        return true;
+    },
+    'task.fetchWorkingStatus'(){
+        //get current date
+        //make call searching for tasks organized by not completed and duedate - currentdate (> 0) ascending limited to 5
+        //Tasks.find( { $query: {}, $orderby: { date : 1 } } )
+        // Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
+        //cursor = Tasks.find({}, { sort: { dueDate: -1 } });
+        //array = [];
+
+        array = Tasks.find({current: 1}).fetch();
+
+        if (array != null){
+            return true;
+        }       
+        else{
+            return false;
+        } 
+        
     }
 
   })
