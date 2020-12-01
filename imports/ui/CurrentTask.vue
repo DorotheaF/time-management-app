@@ -15,11 +15,7 @@
       <TaskTimer2 
       v-if="this.task.current==1"
       />
-        
-
-       <!--button @click="$emit('welcome', this.timerDuration)"-->      
-        
-
+              
        <button @click="updateStatus()">
           Start Session
         </button>

@@ -8,17 +8,13 @@
 </template>
 
 <script>
+//this component came from https://codepen.io/gpelelis/pen/xrNwvr. We were working on trying to correspond the timer running down with the main circle base timer.  
 export default {
-props: {
-  /*vita: {
-    type: Boolean,
-    required: true,
-  }*/
-},
+ 
 
 data: function() {
     return {
-      isActive: true,
+      isActive: true, //false in the orginal component, but this timer should only be called upon when we want the bar to show up, so isActive starts out true
       timeoutId: -1,
       transitionBarWithStyle: {},
       duration: 3000 // default
@@ -67,14 +63,14 @@ data: function() {
   }, 
   
   created(){
-    var self = this;
+    /*var self = this;
     //var triggerTimer= new Vue();
     triggertimer.$on('start-timer', function(time){
       self.start(time);
     });
     triggerTimer.$on('start-cancel', function(time){
       self.cancel();
-    })
+    })*/
   }
 };
 

@@ -9,6 +9,7 @@
           
           <CurrentTask v-on:welcome="sayHi()"  v-for="(task, index) in prioritiesTaskList" v-bind:key="index" v-bind:task="task" v-bind:index="index+1" 
           />
+          <!-- TODO: Current Task timer: Appear and run down based on inputted time when working on task-->
         </ul>
        
       </div>
@@ -33,7 +34,7 @@
     </div>
     <div class="column-b">      
       <div class="break-time-tray">
-        Time until next break <!-- TODO: Finish this!! https://medium.com/js-dojo/how-to-create-an-animated-countdown-timer-with-vue-89738903823f -->
+        Time until next break <!-- https://medium.com/js-dojo/how-to-create-an-animated-countdown-timer-with-vue-89738903823f -->
         <BaseTimer
           :time-left="timeLeft"
           :time-limit="timeLimit"
@@ -128,7 +129,6 @@ export default {
      
       //refers to the circle timer
       startTimer() {
-        //if (vita==true){
       timerInterval = window.setInterval(() => (this.timePassed += 1), 1000);
         
         
